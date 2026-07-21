@@ -16,43 +16,52 @@ Exemplo:
 
 ---
 
-# [0.1.0] - Sprint 0 - Documentação
+# [0.1.0] - Sprint 0 - Fundação do Projeto
 
 ## Adicionado
 
-### Estrutura do Projeto
+### Estrutura
 
-* Criação da estrutura inicial do repositório.
-* Organização das pastas do projeto.
-* Estrutura inicial para automação com Cypress.
-* Organização da documentação técnica.
+- Criação da estrutura inicial do repositório.
+- Organização das pastas do projeto.
+- Estrutura inicial do framework Cypress.
+- Organização da documentação técnica.
+
+### Ambiente
+
+- Configuração inicial do Cypress.
+- Configuração do ambiente Node.js.
+- Configuração das dependências do projeto.
+- Estrutura inicial do package.json.
+- Configuração do .gitignore.
 
 ### Planejamento
 
-* Backlog do projeto.
-* Plano de Desenvolvimento.
-* Planejamento das Sprints.
+- Backlog do projeto.
+- Plano de Desenvolvimento.
+- Planejamento das Sprints.
 
-### Testes
+### Estratégia de Testes
 
-* Plano de Testes.
-* Cenários de Teste.
-* Casos de Teste.
-* Critérios de Aceite.
-* Massa de Teste.
+- Plano de Testes.
+- Cenários de Teste.
+- Casos de Teste.
+- Critérios de Aceite.
+- Massa de Testes.
+
+### Arquitetura
+
+- Definição da arquitetura baseada em Page Object Model (POM).
+- Definição da estratégia de automação.
+- Definição da estrutura das Fixtures.
+- Definição dos comandos customizados.
+- Definição das convenções de nomenclatura.
 
 ### Documentação
 
-* README inicial.
-* Estrutura da documentação.
-* Organização dos artefatos do projeto.
-
-### Preparação
-
-* Definição da arquitetura baseada em Page Object Model (POM).
-* Definição da estratégia de automação.
-* Definição da estrutura das fixtures.
-* Definição das convenções de nomenclatura.
+- README inicial.
+- Estrutura da documentação.
+- Organização dos artefatos do projeto.
 
 ---
 
