@@ -68,3 +68,17 @@ login.json
 - Reutilização
 - Organização
 - Facilidade de manutenção
+
+---
+
+## Dados dinâmicos
+
+Fixtures devem armazenar dados estáticos e reutilizáveis.
+
+Dados que precisam ser únicos durante a execução, como usernames de cadastro,
+devem ser gerados dinamicamente por uma função ou utilitário.
+
+Exemplo:
+
+```javascript
+const username = `qa_cypress_${Date.now()}`

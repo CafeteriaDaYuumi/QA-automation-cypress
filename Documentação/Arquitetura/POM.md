@@ -63,7 +63,9 @@ class LoginPage {
 
 # Regras
 
-- Nunca utilizar comandos do Cypress diretamente nos testes.
+- Interações com elementos da interface devem ser realizadas através dos métodos dos Page Objects.
+- Assertions relacionadas ao comportamento esperado podem permanecer nos testes.
+- Seletores de elementos devem permanecer centralizados nos Page Objects.
 - Toda interação com a interface deve ocorrer através dos métodos da Page.
 - Seletores devem permanecer exclusivamente na Page.
 - Evitar lógica de negócio dentro da Page.

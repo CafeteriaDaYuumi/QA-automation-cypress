@@ -1,5 +1,14 @@
 {
-  "dependencies": {
+  "name": "qa-automation-cypress",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "cy:open": "cypress open",
+    "cy:run": "cypress run",
+    "cy:chrome": "cypress run --browser chrome",
+    "test": "cypress run"
+  },
+  "devDependencies": {
     "cypress": "^15.18.1"
   }
 }

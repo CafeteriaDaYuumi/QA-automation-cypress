@@ -2,220 +2,277 @@
 
 Todas as mudanças relevantes deste projeto serão documentadas neste arquivo.
 
-Este projeto segue os princípios de **Keep a Changelog** e utiliza **Versionamento Semântico (SemVer)**.
+O projeto segue os princípios do [Keep a Changelog](https://keepachangelog.com/pt-BR/1.0.0/)
+e utiliza Versionamento Semântico (SemVer).
 
-Formato da versão:
+## Formato de versão
 
 `MAJOR.MINOR.PATCH`
 
-Exemplo:
-
-* **MAJOR** → alterações incompatíveis.
-* **MINOR** → novas funcionalidades.
-* **PATCH** → correções e pequenos ajustes.
+- **MAJOR** — alterações incompatíveis ou grandes mudanças estruturais.
+- **MINOR** — novas funcionalidades ou etapas relevantes do projeto.
+- **PATCH** — correções e pequenos ajustes.
 
 ---
 
-# [0.1.0] - Sprint 0 - Fundação do Projeto
+# [0.1.0] - 2026-07-21
 
-## Adicionado
+## Sprint 0 — Fundação do Projeto
 
-### Estrutura
+### Adicionado
 
-- Criação da estrutura inicial do repositório.
-- Organização das pastas do projeto.
-- Estrutura inicial do framework Cypress.
-- Organização da documentação técnica.
+#### Estrutura do projeto
 
-### Ambiente
+- Criação do repositório do projeto.
+- Estrutura inicial do Cypress.
+- Organização inicial das pastas de documentação.
+- Configuração inicial do `cypress.config.js`.
+- Inclusão do `package.json` e `package-lock.json`.
+- Estrutura inicial do suporte do Cypress.
 
-- Configuração inicial do Cypress.
-- Configuração do ambiente Node.js.
-- Configuração das dependências do projeto.
-- Estrutura inicial do package.json.
-- Configuração do .gitignore.
+#### Documentação de planejamento
 
-### Planejamento
+- Criação do Backlog.
+- Criação do Plano de Desenvolvimento.
+- Definição das Sprints.
+- Definição do fluxo de evolução do projeto.
 
-- Backlog do projeto.
-- Plano de Desenvolvimento.
-- Planejamento das Sprints.
+#### Documentação de testes
 
-### Estratégia de Testes
+- Criação do Plano de Testes.
+- Criação dos Cenários de Teste.
+- Criação dos Casos de Teste.
+- Definição dos Critérios de Aceite.
+- Definição da Massa de Teste.
 
-- Plano de Testes.
-- Cenários de Teste.
-- Casos de Teste.
-- Critérios de Aceite.
-- Massa de Testes.
+#### Documentação de arquitetura
 
-### Arquitetura
+- Definição inicial do Page Object Model (POM).
+- Definição das responsabilidades dos Page Objects.
+- Definição da estratégia de Fixtures.
+- Definição das regras para Custom Commands.
+- Definição dos Hooks.
+- Definição das convenções de nomenclatura e seletores.
 
-- Definição da arquitetura baseada em Page Object Model (POM).
-- Definição da estratégia de automação.
-- Definição da estrutura das Fixtures.
-- Definição dos comandos customizados.
-- Definição das convenções de nomenclatura.
+#### Mapeamento da aplicação
 
-### Documentação
+- Mapeamento inicial da página inicial.
+- Mapeamento inicial do fluxo de cadastro.
 
-- README inicial.
-- Estrutura da documentação.
-- Organização dos artefatos do projeto.
+#### Gestão de defeitos
 
----
+- Criação do modelo de Bug Report.
+- Criação da estrutura para registro de defeitos.
 
-# [0.2.0] - Sprint 1 - Cadastro de Usuário *(Planejado)*
+#### Documentação do projeto
 
-## Planejado
-
-* Automação do fluxo de cadastro.
-* Validação dos campos obrigatórios.
-* Cadastro com dados válidos.
-* Cadastro com usuário existente.
-* Cadastro com senhas diferentes.
-* Criação do RegisterPage.
-* Criação da fixture de cadastro.
-* Registro das evidências.
-* Atualização da documentação.
+- Criação do README.
+- Criação do CHANGELOG.
+- Organização dos artefatos de documentação.
 
 ---
 
-# [0.3.0] - Sprint 2 - Login *(Planejado)*
+## Situação da Sprint 0
 
-## Planejado
+A Sprint 0 estabeleceu a base documental e estrutural do projeto.
 
-* Automação do login.
-* Login válido.
-* Login inválido.
-* Campos obrigatórios.
-* Logout.
-* Criação do LoginPage.
-* Atualização das fixtures.
+A implementação da suíte de testes funcionais ainda não foi iniciada.
 
----
+As seguintes etapas permanecem planejadas para as próximas Sprints:
 
-# [0.4.0] - Sprint 3 - Contas *(Planejado)*
-
-## Planejado
-
-* Consulta das contas.
-* Consulta dos detalhes da conta.
-* Histórico de transações.
-* Consulta dos detalhes da transação.
-* Criação do AccountsPage.
+- Implementação dos Page Objects.
+- Implementação das Fixtures de cada funcionalidade.
+- Automação dos casos de teste.
+- Geração de dados dinâmicos.
+- Registro de evidências.
+- Execução da suíte de regressão.
+- Integração contínua.
 
 ---
 
-# [0.5.0] - Sprint 4 - Transferências *(Planejado)*
+# [0.2.0] - Sprint 1 — Cadastro de Usuário
 
-## Planejado
+**Status:** Planejado
 
-* Transferência válida.
-* Transferência com valores inválidos.
-* Transferência entre contas.
-* Validação das mensagens.
-* Criação do TransferPage.
+### Planejado
 
----
-
-# [0.6.0] - Sprint 5 - Pagamento de Contas *(Planejado)*
-
-## Planejado
-
-* Pagamento válido.
-* Campos obrigatórios.
-* Contas divergentes.
-* Valores inválidos.
-* Criação do BillPayPage.
+- Implementação do fluxo de cadastro.
+- Criação do `RegisterPage`.
+- Criação da fixture de cadastro.
+- Automação do cadastro com dados válidos.
+- Validação dos campos obrigatórios.
+- Validação de usuário já existente.
+- Validação de senhas diferentes.
+- Validação das mensagens apresentadas pela aplicação.
+- Geração de dados dinâmicos para cadastro.
+- Registro das evidências.
+- Atualização da documentação.
 
 ---
 
-# [0.7.0] - Sprint 6 - Solicitação de Empréstimo *(Planejado)*
+# [0.3.0] - Sprint 2 — Login
 
-## Planejado
+**Status:** Planejado
 
-* Solicitação válida.
-* Solicitação inválida.
-* Validação das regras de negócio.
-* Criação do LoanPage.
+### Planejado
 
----
-
-# [0.8.0] - Sprint 7 - Atualização de Perfil *(Planejado)*
-
-## Planejado
-
-* Atualização de dados.
-* Persistência das informações.
-* Validação dos campos.
-* Criação do ProfilePage.
+- Implementação do fluxo de login.
+- Criação do `LoginPage`.
+- Login com credenciais válidas.
+- Login com credenciais inválidas.
+- Validação dos campos obrigatórios.
+- Implementação do logout.
+- Atualização das Fixtures.
+- Registro das evidências.
 
 ---
 
-# [0.9.0] - Sprint 8 - Regressão *(Planejado)*
+# [0.4.0] - Sprint 3 — Contas
 
-## Planejado
+**Status:** Planejado
 
-* Execução completa da suíte.
-* Correção de falhas.
-* Refatoração.
-* Otimização dos testes.
-* Revisão da documentação.
+### Planejado
+
+- Consulta das contas.
+- Consulta dos detalhes da conta.
+- Consulta do histórico de transações.
+- Consulta dos detalhes de uma transação.
+- Criação do `AccountsPage`.
+- Registro das evidências.
 
 ---
 
-# [1.0.0] - Sprint 9 - Release Final *(Planejado)*
+# [0.5.0] - Sprint 4 — Transferências
 
-## Planejado
+**Status:** Planejado
+
+### Planejado
+
+- Transferência válida.
+- Transferência entre contas.
+- Transferência com valores inválidos.
+- Validação de campos obrigatórios.
+- Validação das mensagens apresentadas pela aplicação.
+- Criação do `TransferPage`.
+- Registro das evidências.
+
+---
+
+# [0.6.0] - Sprint 5 — Pagamento de Contas
+
+**Status:** Planejado
+
+### Planejado
+
+- Pagamento válido.
+- Validação de campos obrigatórios.
+- Validação de valores inválidos.
+- Validação de dados divergentes.
+- Criação do `BillPayPage`.
+- Registro das evidências.
+
+---
+
+# [0.7.0] - Sprint 6 — Solicitação de Empréstimo
+
+**Status:** Planejado
+
+### Planejado
+
+- Solicitação válida.
+- Solicitação inválida.
+- Validação das regras de negócio.
+- Validação das mensagens.
+- Criação do `LoanPage`.
+- Registro das evidências.
+
+---
+
+# [0.8.0] - Sprint 7 — Atualização de Perfil
+
+**Status:** Planejado
+
+### Planejado
+
+- Atualização dos dados do usuário.
+- Validação dos campos.
+- Validação da persistência das informações.
+- Criação do `ProfilePage`.
+- Registro das evidências.
+
+---
+
+# [0.9.0] - Sprint 8 — Regressão e Refatoração
+
+**Status:** Planejado
+
+### Planejado
+
+- Execução da suíte completa.
+- Identificação de falhas de regressão.
+- Correção dos testes instáveis.
+- Refatoração dos Page Objects.
+- Refatoração das Fixtures.
+- Revisão dos comandos customizados.
+- Otimização da suíte.
+- Revisão da documentação.
+
+---
+
+# [1.0.0] - Sprint 9 — Release Final
+
+**Status:** Planejado
 
 ### Integração Contínua
 
-* Pipeline completo no GitHub Actions.
-* Execução automática dos testes.
+- Implementação do pipeline no GitHub Actions.
+- Execução automática da suíte.
+- Execução em navegador configurado no pipeline.
 
 ### Evidências
 
-* Captura automática de screenshots.
-* Gravação automática de vídeos.
-* Publicação dos artefatos.
+- Captura de screenshots.
+- Gravação de vídeos.
+- Publicação dos artefatos de execução.
 
 ### Documentação
 
-* Atualização final do README.
-* Revisão da documentação.
-* Registro dos defeitos encontrados.
-* Atualização do Changelog.
+- Revisão final da documentação.
+- Atualização do README.
+- Atualização do CHANGELOG.
+- Consolidação dos defeitos encontrados.
+- Documentação dos resultados finais.
 
 ### Projeto
 
-* Primeira versão estável.
-* Publicação da Release 1.0.0.
-* Conclusão do projeto.
+- Revisão geral da suíte.
+- Validação da estabilidade.
+- Publicação da Release `1.0.0`.
+- Conclusão do projeto.
 
 ---
 
 # Convenção de Versionamento
 
-| Tipo  | Exemplo | Descrição                                                |
-| ----- | ------- | -------------------------------------------------------- |
-| MAJOR | 2.0.0   | Alterações incompatíveis ou grandes mudanças estruturais |
-| MINOR | 1.1.0   | Novas funcionalidades adicionadas                        |
-| PATCH | 1.0.1   | Correções de bugs e pequenos ajustes                     |
+| Tipo | Exemplo | Utilização |
+|---|---|---|
+| MAJOR | `2.0.0` | Alterações incompatíveis ou grandes mudanças estruturais |
+| MINOR | `1.1.0` | Nova funcionalidade ou etapa relevante |
+| PATCH | `1.0.1` | Correção ou pequeno ajuste |
 
 ---
 
 # Histórico de Versões
 
-| Versão | Status      | Descrição                        |
-| ------ | ----------- | -------------------------------- |
-| 0.1.0  | ⏳ Planejada | Estrutura inicial e documentação |
-| 0.2.0  | ⏳ Planejada | Cadastro de usuário              |
-| 0.3.0  | ⏳ Planejada | Login e logout                   |
-| 0.4.0  | ⏳ Planejada | Contas                           |
-| 0.5.0  | ⏳ Planejada | Transferências                   |
-| 0.6.0  | ⏳ Planejada | Pagamento de contas              |
-| 0.7.0  | ⏳ Planejada | Solicitação de empréstimos       |
-| 0.8.0  | ⏳ Planejada | Atualização de perfil            |
-| 0.9.0  | ⏳ Planejada | Regressão e refatoração          |
-| 1.0.0  | ⏳ Planejada | Release final do projeto         |
+| Versão | Sprint | Status | Descrição |
+|---|---|---|---|
+| `0.1.0` | Sprint 0 | ✅ Concluída | Fundação, estrutura e documentação |
+| `0.2.0` | Sprint 1 | ⏳ Planejada | Cadastro de usuário |
+| `0.3.0` | Sprint 2 | ⏳ Planejada | Login e logout |
+| `0.4.0` | Sprint 3 | ⏳ Planejada | Contas |
+| `0.5.0` | Sprint 4 | ⏳ Planejada | Transferências |
+| `0.6.0` | Sprint 5 | ⏳ Planejada | Pagamento de contas |
+| `0.7.0` | Sprint 6 | ⏳ Planejada | Solicitação de empréstimo |
+| `0.8.0` | Sprint 7 | ⏳ Planejada | Atualização de perfil |
+| `0.9.0` | Sprint 8 | ⏳ Planejada | Regressão e refatoração |
+| `1.0.0` | Sprint 9 | ⏳ Planejada | Release final |

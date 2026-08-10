@@ -20,14 +20,12 @@ cypress/
 
 # Quando criar um Command
 
-Criar Commands para:
+Criar Commands quando o comportamento:
 
-- Login
-- Logout
-- Cadastro
-- Reset da aplicação
-- Criação de usuários
-- Manipulação da API
+- for reutilizado por múltiplos testes;
+- representar uma ação de alto nível;
+- não pertencer exclusivamente a uma Page;
+- reduzir duplicação sem esconder lógica importante do cenário.
 - Ações reutilizadas por vários testes
 
 ---

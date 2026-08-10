@@ -569,27 +569,6 @@ Documentation/
 
 ---
 
-## Status do projeto
-
-| Etapa                   | Status             |
-| ----------------------- | ------------------ |
-| Planejamento            | Concluído          |
-| Documentação inicial    | Concluída          |
-| Configuração do Cypress | Em desenvolvimento |
-| Cadastro                | Não iniciado       |
-| Login e logout          | Não iniciado       |
-| Contas                  | Não iniciado       |
-| Transferências          | Não iniciado       |
-| Pagamentos              | Não iniciado       |
-| Empréstimos             | Não iniciado       |
-| Atualização de perfil   | Não iniciado       |
-| Regressão               | Não iniciado       |
-| GitHub Actions          | Não iniciado       |
-
-Os status deverão ser atualizados conforme a evolução do projeto.
-
----
-
 ## Critérios para conclusão
 
 Uma funcionalidade será considerada concluída quando:

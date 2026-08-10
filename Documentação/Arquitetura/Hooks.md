@@ -63,6 +63,21 @@ describe('', () => {
 
 ---
 
+## Regra de utilização
+
+Hooks devem ser utilizados somente quando houver uma necessidade
+real de preparação ou limpeza compartilhada.
+
+Não utilizar hooks apenas para reduzir algumas linhas de um teste.
+
+Preferir:
+- before() para preparação única da suíte;
+- beforeEach() para preparação necessária a cada teste;
+- afterEach() para limpeza ou evidências;
+- after() para finalização da suíte.
+
+---
+
 # Regras
 
 - Evitar lógica complexa.

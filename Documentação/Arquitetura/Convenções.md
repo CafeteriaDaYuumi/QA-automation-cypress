@@ -97,11 +97,12 @@ accountNumber
 
 Prioridade:
 
-1. id
-2. data-testid
+1. data-testid
+2. id
 3. name
-4. CSS
-5. XPath (evitar)
+4. atributos estáveis
+5. CSS
+6. XPath somente quando necessário
 
 ---
 

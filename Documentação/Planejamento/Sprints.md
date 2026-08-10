@@ -26,12 +26,9 @@ Preparar toda a infraestrutura necessária para o desenvolvimento.
 - Configurar projeto Cypress
 - Instalar dependências
 - Configurar estrutura de pastas
-- Configurar ESLint
-- Configurar Prettier
 - Configurar Git
 - Criar README
 - Criar documentação inicial
-- Configurar GitHub Actions (estrutura inicial)
 
 ### Entregáveis
 
