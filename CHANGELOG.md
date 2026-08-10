@@ -92,21 +92,24 @@ As seguintes etapas permanecem planejadas para as próximas Sprints:
 
 # [0.2.0] - Sprint 1 — Cadastro de Usuário
 
-**Status:** Planejado
-
-### Planejado
+**Status:** Concluída
 
 - Implementação do fluxo de cadastro.
-- Criação do `RegisterPage`.
-- Criação da fixture de cadastro.
-- Automação do cadastro com dados válidos.
-- Validação dos campos obrigatórios.
-- Validação de usuário já existente.
-- Validação de senhas diferentes.
+- Criação e utilização do RegisterPage.
+- Criação e utilização da fixture de cadastro.
+- Automação do cadastro com dados válidos (REGISTER001).
+- Validação dos campos obrigatórios (REGISTER002).
+- Validação de senhas diferentes (REGISTER003).
+- Validação de usuário já existente (REGISTER004).
 - Validação das mensagens apresentadas pela aplicação.
-- Geração de dados dinâmicos para cadastro.
-- Registro das evidências.
-- Atualização da documentação.
+- Geração de username dinâmico para os cadastros.
+- Armazenamento dos dados do usuário criado em createdUser.json.
+- Validação dos dados armazenados após o cadastro.
+- Criação do fluxo de login utilizando o usuário criado.
+- Criação e utilização do LoginPage.
+- Registro de duas evidências por caso: estado anterior e resultado do envio.
+- Atualização da documentação da Sprint.
+
 
 ---
 
@@ -267,7 +270,7 @@ As seguintes etapas permanecem planejadas para as próximas Sprints:
 | Versão | Sprint | Status | Descrição |
 |---|---|---|---|
 | `0.1.0` | Sprint 0 | ✅ Concluída | Fundação, estrutura e documentação |
-| `0.2.0` | Sprint 1 | ⏳ Planejada | Cadastro de usuário |
+| `0.2.0` | Sprint 1 | ✅ Concluída | Cadastro de usuário |
 | `0.3.0` | Sprint 2 | ⏳ Planejada | Login e logout |
 | `0.4.0` | Sprint 3 | ⏳ Planejada | Contas |
 | `0.5.0` | Sprint 4 | ⏳ Planejada | Transferências |

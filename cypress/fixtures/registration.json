@@ -1,0 +1,13 @@
+{
+  "validUser": {
+    "firstName": "Victor",
+    "lastName": "Hugo",
+    "address": "Rua dos Testes",
+    "city": "Betim",
+    "state": "MG",
+    "zipCode": "32600000",
+    "phone": "31999999999",
+    "ssn": "123456789",
+    "password": "Cypress@123"
+  }
+}

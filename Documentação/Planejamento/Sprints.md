@@ -64,11 +64,31 @@ Automatizar o fluxo completo de cadastro.
 - REGISTER004
 - REGISTER005
 
-### Entregáveis
+### Dados de teste
 
-- Cadastro automatizado
-- Evidências
-- Documentação
+- Utilizar Fixture para armazenar os dados base do cadastro.
+- Gerar o `username` dinamicamente para garantir unicidade.
+- Manter os demais dados estáveis quando não houver necessidade de geração dinâmica.
+- Após o cadastro válido, armazenar os dados efetivamente utilizados na criação do usuário.
+- O armazenamento dos dados criados não deve alterar a Fixture original.
+- Os casos de teste devem permanecer independentes entre si.
+
+### Fluxo do cadastro válido
+
+```text
+Carregar dados da Fixture
+        ↓
+Gerar username único
+        ↓
+Montar dados do usuário
+        ↓
+Preencher formulário
+        ↓
+Realizar cadastro
+        ↓
+Validar cadastro realizado
+        ↓
+Armazenar dados do usuário criado
 
 ---
 
