@@ -178,7 +178,7 @@ Os casos de teste serão identificados de acordo com a funcionalidade validada.
 
 **Prioridade:** Alta
 **Tipo:** Positivo
-**Automação:** Planejada
+**Automação:** Implementada
 
 ### Pré-condições
 
@@ -204,7 +204,7 @@ Os casos de teste serão identificados de acordo com a funcionalidade validada.
 
 **Prioridade:** Alta
 **Tipo:** Negativo
-**Automação:** Planejada
+**Automação:** Implementada
 
 ### Pré-condições
 
@@ -228,7 +228,7 @@ Os casos de teste serão identificados de acordo com a funcionalidade validada.
 
 **Prioridade:** Alta
 **Tipo:** Negativo
-**Automação:** Planejada
+**Automação:** Implementada
 
 ### Passos
 
@@ -248,7 +248,7 @@ Os casos de teste serão identificados de acordo com a funcionalidade validada.
 
 **Prioridade:** Alta
 **Tipo:** Negativo
-**Automação:** Planejada
+**Automação:** Implementada
 
 ### Passos
 
@@ -268,7 +268,7 @@ Os casos de teste serão identificados de acordo com a funcionalidade validada.
 
 **Prioridade:** Alta
 **Tipo:** Positivo
-**Automação:** Planejada
+**Automação:** Implementada
 
 ### Pré-condições
 

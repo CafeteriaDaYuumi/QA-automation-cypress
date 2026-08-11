@@ -1,6 +1,6 @@
 {
-  "firstName": "Victor",
-  "lastName": "Hugo",
+  "firstName": "QA_test",
+  "lastName": "Cypress",
   "address": "Rua dos Testes",
   "city": "Betim",
   "state": "MG",
@@ -8,5 +8,5 @@
   "phone": "31999999999",
   "ssn": "123456789",
   "password": "Cypress@123",
-  "username": "qa_1786387139004"
+  "username": "qa_1786454881104"
 }

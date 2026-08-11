@@ -1,7 +1,7 @@
 {
   "validUser": {
-    "firstName": "Victor",
-    "lastName": "Hugo",
+    "firstName": "QA_test",
+    "lastName": "Cypress",
     "address": "Rua dos Testes",
     "city": "Betim",
     "state": "MG",

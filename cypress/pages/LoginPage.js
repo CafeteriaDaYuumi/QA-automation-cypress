@@ -5,12 +5,9 @@ class LoginPage {
     cy.get('input[type="submit"][value="Log In"]').as('loginButton')
   }
 
-  fillUsername(username) {
-    cy.get('@username').type(username)
-  }
-
-  fillPassword(password) {
-    cy.get('@password').type(password)
+  fillCredentials(user) {
+    cy.get('@username').clear().type(user.username)
+    cy.get('@password').clear().type(user.password)
   }
 
   submit() {
@@ -18,8 +15,7 @@ class LoginPage {
   }
 
   login(user) {
-    this.fillUsername(user.username)
-    this.fillPassword(user.password)
+    this.fillCredentials(user)
     this.submit()
   }
 }

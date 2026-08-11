@@ -18,7 +18,7 @@ describe('Cadastro de Usuário', () => {
     RegisterPage.setSelectors()
   })
 
-  it('REGISTER001 - deve cadastrar um novo usuário com dados válidos', () => {
+  it.only('REGISTER001 - deve cadastrar um novo usuário com dados válidos', () => {
     RegisterPage.fillFirstName(user.firstName)
     RegisterPage.fillLastName(user.lastName)
     RegisterPage.fillAddress(user.address)
