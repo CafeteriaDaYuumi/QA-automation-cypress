@@ -115,7 +115,6 @@ As seguintes etapas permanecem planejadas para as próximas Sprints:
 
 # [0.3.0] - Sprint 2 — Login
 
-**Status:** Planejado
 
 ### Planejado
 
@@ -132,7 +131,6 @@ As seguintes etapas permanecem planejadas para as próximas Sprints:
 
 # [0.4.0] - Sprint 3 — Contas
 
-**Status:** Planejado
 
 ### Planejado
 

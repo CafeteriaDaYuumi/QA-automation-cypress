@@ -291,9 +291,9 @@ Os casos de teste serão identificados de acordo com a funcionalidade validada.
 
 ## ACCOUNT001 — Visualizar as contas disponíveis
 
-**Prioridade:** Alta
-**Tipo:** Positivo
-**Automação:** Planejada
+**Prioridade:** Alta  
+**Tipo:** Positivo  
+**Automação:** Implementada
 
 ### Pré-condições
 
@@ -315,9 +315,9 @@ Os casos de teste serão identificados de acordo com a funcionalidade validada.
 
 ## ACCOUNT002 — Visualizar os detalhes de uma conta
 
-**Prioridade:** Alta
-**Tipo:** Positivo
-**Automação:** Planejada
+**Prioridade:** Alta  
+**Tipo:** Positivo  
+**Automação:** Implementada
 
 ### Pré-condições
 
@@ -340,9 +340,9 @@ Os casos de teste serão identificados de acordo com a funcionalidade validada.
 
 ## ACCOUNT003 — Consultar o histórico de transações
 
-**Prioridade:** Média
-**Tipo:** Positivo
-**Automação:** Planejada
+**Prioridade:** Média  
+**Tipo:** Positivo  
+**Automação:** Implementada
 
 ### Pré-condições
 
@@ -359,6 +359,33 @@ Os casos de teste serão identificados de acordo com a funcionalidade validada.
 
 * O sistema deve apresentar as transações da conta.
 * Cada movimentação deve apresentar informações como data, descrição e valor.
+
+---
+
+## ACCOUNT004 — Consultar os detalhes de uma transação
+
+**Prioridade:** Média  
+**Tipo:** Positivo  
+**Automação:** Implementada
+
+### Pré-condições
+
+* O usuário deve estar autenticado.
+* Deve existir uma conta disponível.
+* A conta selecionada deve possuir pelo menos uma transação.
+
+### Passos
+
+1. Acessar a visão geral das contas.
+2. Selecionar uma conta.
+3. Localizar uma transação no histórico.
+4. Selecionar a transação.
+
+### Resultado esperado
+
+* O sistema deve direcionar para os detalhes da transação selecionada.
+* Os detalhes da transação devem ser apresentados.
+* As informações correspondentes à transação selecionada devem ser exibidas.
 
 ---
 
