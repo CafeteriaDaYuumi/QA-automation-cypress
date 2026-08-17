@@ -18,13 +18,13 @@ Desenvolver uma suíte de testes automatizados capaz de validar os principais fl
 
 | ID | História | Prioridade | Sprint | Status |
 |----|----------|------------|--------|--------|
-| US001 | Como visitante, desejo criar uma nova conta para acessar o sistema. | Alta | Sprint 1 | ⬜ Não iniciado |
-| US002 | Como usuário, desejo realizar login com credenciais válidas. | Alta | Sprint 2 | ⬜ Não iniciado |
-| US003 | Como usuário, desejo impedir login com credenciais inválidas. | Alta | Sprint 2 | ⬜ Não iniciado |
-| US004 | Como usuário, desejo realizar logout do sistema. | Média | Sprint 2 | ⬜ Não iniciado |
-| US005 | Como usuário, desejo visualizar minhas contas bancárias. | Alta | Sprint 3 | ⬜ Não iniciado |
-| US006 | Como usuário, desejo visualizar detalhes da conta. | Média | Sprint 3 | ⬜ Não iniciado |
-| US007 | Como usuário, desejo consultar o histórico de transações. | Média | Sprint 3 | ⬜ Não iniciado |
+| US001 | Como visitante, desejo criar uma nova conta para acessar o sistema. | Alta | Sprint 1 | Concluída |
+| US002 | Como usuário, desejo realizar login com credenciais válidas. | Alta | Sprint 2 | Concluída|
+| US003 | Como usuário, desejo impedir login com credenciais inválidas. | Alta | Sprint 2 | Concluída |
+| US004 | Como usuário, desejo realizar logout do sistema. | Média | Sprint 2 | Concluída |
+| US005 | Como usuário, desejo visualizar minhas contas bancárias. | Alta | Sprint 3 | Concluída |
+| US006 | Como usuário, desejo visualizar detalhes da conta. | Média | Sprint 3 | Concluída |
+| US007 | Como usuário, desejo consultar o histórico de transações. | Média | Sprint 3 | Concluída |
 | US008 | Como usuário, desejo transferir dinheiro entre minhas contas. | Alta | Sprint 4 | ⬜ Não iniciado |
 | US009 | Como usuário, desejo validar mensagens para transferências inválidas. | Alta | Sprint 4 | ⬜ Não iniciado |
 | US010 | Como usuário, desejo pagar boletos utilizando minha conta. | Alta | Sprint 5 | ⬜ Não iniciado |

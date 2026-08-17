@@ -15,14 +15,20 @@ describe('Contas', () => {
       cy.url()
         .should('include', '/overview.htm')
 
-      AccountsPage.setSelectors()
+      AccountsPage.setOverviewSelectors()
     })
   })
 
   it('ACCOUNT001 - deve consultar as contas disponíveis', () => {
     cy.screenshot('Accounts/ACCOUNT001-before')
 
-    cy.get('@accountTable')
+    cy.get('@accountOverview')
+      .should('be.visible')
+
+    cy.get('@accountColumn')
+      .should('be.visible')
+
+    cy.get('@accountFooter')
       .should('be.visible')
 
     cy.get('@accountLink')
@@ -40,7 +46,18 @@ describe('Contas', () => {
     cy.url()
       .should('include', '/activity.htm')
 
-    cy.contains('Account Details')
+    AccountsPage.setActivitySelectors()
+
+    cy.get('@accountDetailsTable')
+      .should('be.visible')
+
+    cy.get('@activityForm')
+      .should('be.visible')
+
+    cy.get('@activityColumn')
+      .should('be.visible')
+
+    cy.get('@activityColumnLast')
       .should('be.visible')
 
     cy.screenshot('Accounts/ACCOUNT002-result')
@@ -54,31 +71,43 @@ describe('Contas', () => {
     cy.url()
       .should('include', '/activity.htm')
 
-    cy.get('#transactionTable')
+    AccountsPage.setActivitySelectors()
+
+    cy.get('@accountActivityTitle')
+      .should('be.visible')
+
+    cy.get('@transactionTable')
       .should('be.visible')
 
     cy.screenshot('Accounts/ACCOUNT003-result')
   })
 
   it('ACCOUNT004 - deve consultar os detalhes de uma transação', () => {
-  cy.screenshot('Accounts/ACCOUNT004-before')
+    cy.screenshot('Accounts/ACCOUNT004-before')
 
-  AccountsPage.accessAccount()
+    AccountsPage.accessAccount()
 
-  cy.url()
-    .should('include', '/activity.htm')
+    cy.url()
+      .should('include', '/activity.htm')
 
-  cy.get('#transactionTable')
-    .should('be.visible')
+    AccountsPage.setActivitySelectors()
 
-  cy.wait(2000)
+    cy.get('@accountActivityTitle')
+      .should('be.visible')
 
-  cy.get('#transactionTable')
-    .invoke('html')
-    .then((html) => {
-      cy.log(html)
-    })
+    cy.get('@accountDetailsTitle')
+      .should('be.visible')
 
-  cy.screenshot('Accounts/ACCOUNT004-activity')
-})
+    cy.get('@accountDetail')
+      .should('be.visible')
+
+    cy.get('@transactionDetail')
+      .should('be.visible')
+
+    cy.get('@transactionAmount')
+      .should('be.visible')
+
+    cy.screenshot('Accounts/ACCOUNT004-result')
+  })
+
 })

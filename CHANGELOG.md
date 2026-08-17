@@ -115,6 +115,7 @@ As seguintes etapas permanecem planejadas para as próximas Sprints:
 
 # [0.3.0] - Sprint 2 — Login
 
+**Status:** Concluída
 
 ### Planejado
 
@@ -131,6 +132,7 @@ As seguintes etapas permanecem planejadas para as próximas Sprints:
 
 # [0.4.0] - Sprint 3 — Contas
 
+**Status:** Concluída
 
 ### Planejado
 
@@ -269,9 +271,9 @@ As seguintes etapas permanecem planejadas para as próximas Sprints:
 |---|---|---|---|
 | `0.1.0` | Sprint 0 | ✅ Concluída | Fundação, estrutura e documentação |
 | `0.2.0` | Sprint 1 | ✅ Concluída | Cadastro de usuário |
-| `0.3.0` | Sprint 2 | ⏳ Planejada | Login e logout |
-| `0.4.0` | Sprint 3 | ⏳ Planejada | Contas |
-| `0.5.0` | Sprint 4 | ⏳ Planejada | Transferências |
+| `0.3.0` | Sprint 2 | ✅ Concluída | Login e logout |
+| `0.4.0` | Sprint 3 | ✅ Concluída | Contas |
+| `0.5.0` | Sprint 4 | ✅ Concluída | Transferências |
 | `0.6.0` | Sprint 5 | ⏳ Planejada | Pagamento de contas |
 | `0.7.0` | Sprint 6 | ⏳ Planejada | Solicitação de empréstimo |
 | `0.8.0` | Sprint 7 | ⏳ Planejada | Atualização de perfil |
