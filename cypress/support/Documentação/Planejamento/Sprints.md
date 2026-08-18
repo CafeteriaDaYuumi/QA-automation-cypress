@@ -330,10 +330,10 @@ Cada sprint será considerada concluída quando:
 
 | Sprint | Funcionalidade | Status |
 |---------|----------------|--------|
-| 0 | Preparação do Ambiente | ⬜ Não iniciado |
-| 1 | Cadastro | ⬜ Não iniciado |
-| 2 | Login | ⬜ Não iniciado |
-| 3 | Contas | ⬜ Não iniciado |
+| 0 | Preparação do Ambiente | Concluida |
+| 1 | Cadastro | Concluida |
+| 2 | Login | Concluida|
+| 3 | Contas | Concluida |
 | 4 | Transferências | ⬜ Não iniciado |
 | 5 | Pagamento de Contas | ⬜ Não iniciado |
 | 6 | Empréstimos | ⬜ Não iniciado |

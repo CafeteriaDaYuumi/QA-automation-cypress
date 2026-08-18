@@ -117,8 +117,6 @@ As seguintes etapas permanecem planejadas para as próximas Sprints:
 
 **Status:** Concluída
 
-### Planejado
-
 - Implementação do fluxo de login.
 - Criação do `LoginPage`.
 - Login com credenciais válidas.
@@ -133,8 +131,6 @@ As seguintes etapas permanecem planejadas para as próximas Sprints:
 # [0.4.0] - Sprint 3 — Contas
 
 **Status:** Concluída
-
-### Planejado
 
 - Consulta das contas.
 - Consulta dos detalhes da conta.

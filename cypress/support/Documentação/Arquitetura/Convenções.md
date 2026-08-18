@@ -180,3 +180,18 @@ Todo Pull Request deve conter:
 - Alta legibilidade
 - Facilidade de manutenção
 - Independência entre testes
+
+# Tipos de Commit
+
+| Tipo       | Uso                                          |
+| ---------- | -------------------------------------------- |
+| `feat`     | Nova funcionalidade                          |
+| `fix`      | Correção de erro/bug                         |
+| `docs`     | Alteração somente de documentação            |
+| `refactor` | Refatoração sem mudança de comportamento     |
+| `test`     | Criação ou alteração de testes               |
+| `chore`    | Tarefas de manutenção/configuração           |
+| `style`    | Formatação/estilo sem alterar lógica         |
+| `perf`     | Melhoria de performance                      |
+| `build`    | Alterações no processo de build/dependências |
+| `ci`       | Alterações relacionadas a CI/CD              |
