@@ -1,8 +1,26 @@
 # Automação de Testes Web com Cypress
 
-Projeto de automação de testes End-to-End desenvolvido com **Cypress** e **JavaScript** para validar os principais fluxos funcionais da aplicação bancária de demonstração **ParaBank**.
+Projeto de automação de testes End-to-End desenvolvido com **Cypress** e **JavaScript**, utilizando a aplicação bancária de demonstração **ParaBank** como ambiente de testes.
 
-O projeto foi estruturado com foco em organização, reutilização de código, documentação, testes de regressão e integração contínua utilizando GitHub Actions.
+O objetivo do projeto é automatizar fluxos funcionais da aplicação, validar comportamentos esperados e manter uma estrutura de testes organizada e reutilizável.
+
+---
+
+## Sobre o projeto
+
+A automação cobre atualmente os principais fluxos já implementados no projeto:
+
+* Cadastro de usuário
+* Login e logout
+* Consulta de contas
+* Consulta de detalhes da conta
+* Consulta do histórico de transações
+* Consulta de detalhes de uma transação
+* Transferências entre contas
+
+Além dos fluxos funcionais, o projeto utiliza **Page Object Model**, fixtures para massa de teste e screenshots como evidências de execução.
+
+Novas funcionalidades ainda não implementadas são mantidas separadamente na documentação de planejamento.
 
 ---
 
@@ -14,93 +32,96 @@ https://parabank.parasoft.com/parabank/index.htm
 
 O ParaBank é uma aplicação bancária de demonstração utilizada para estudos e práticas de testes de software.
 
-Todos os usuários, contas e dados utilizados neste projeto são fictícios.
+Os dados utilizados pela automação são destinados ao ambiente de testes e podem ser alterados ou removidos pela própria aplicação.
 
 ---
 
-## Objetivo
+# Como o projeto funciona
 
-Desenvolver uma suíte de testes automatizados capaz de validar os principais fluxos da aplicação, incluindo cenários positivos, negativos, regras de negócio, campos obrigatórios e persistência de dados.
+A automação segue uma separação entre **cenário de teste, interação com a aplicação e dados de teste**.
 
-O projeto também tem como objetivo demonstrar conhecimentos em:
+De forma simplificada:
 
-* Planejamento de testes
-* Automação End-to-End
-* Cypress
-* JavaScript
-* Page Object Model
-* Testes funcionais
-* Testes de regressão
-* Criação de massa de teste
-* Registro de defeitos
-* Evidências de execução
-* Git e GitHub
-* Integração contínua
+```text
+Teste E2E
+   │
+   ├── utiliza dados das Fixtures
+   │
+   ├── executa ações através dos Page Objects
+   │
+   └── valida o resultado através de Assertions
+```
+
+### Testes E2E
+
+Os arquivos dentro de `cypress/e2e/` representam os cenários automatizados.
+
+Eles são responsáveis por:
+
+* preparar o cenário;
+* utilizar a massa necessária;
+* chamar os Page Objects;
+* executar as ações;
+* validar os resultados;
+* registrar evidências quando necessário.
+
+### Page Objects
+
+Os Page Objects ficam em:
+
+```text
+cypress/pages/
+```
+
+Eles centralizam a interação com as páginas da aplicação.
+
+Atualmente existem Page Objects para:
+
+* página inicial;
+* cadastro;
+* login;
+* contas;
+* transferências.
+
+Isso evita espalhar seletores e ações de interface diretamente pelos testes.
+
+### Fixtures
+
+Os dados de teste ficam em:
+
+```text
+cypress/fixtures/
+```
+
+Além dos dados estáticos, alguns fluxos geram arquivos durante a execução.
+
+Por exemplo:
+
+```text
+registration.json
+        │
+        ▼
+Cadastro
+        │
+        ▼
+createdUser.json
+        │
+        ├── Login
+        ├── Contas
+        └── Transferências
+```
+
+O username utilizado no cadastro é gerado dinamicamente para reduzir conflitos com usuários já existentes.
 
 ---
 
-## Tecnologias utilizadas
-
-* Cypress
-* JavaScript
-* Node.js
-* npm
-* Git
-* GitHub
-* GitHub Actions
-* Markdown
-* Visual Studio Code
-
----
-
-## Funcionalidades contempladas
-
-O projeto prevê a automação das seguintes funcionalidades:
-
-* Cadastro de usuário
-* Login
-* Logout
-* Visualização de contas
-* Consulta de detalhes da conta
-* Histórico de transações
-* Transferência entre contas
-* Pagamento de contas
-* Solicitação de empréstimo
-* Atualização de perfil
-* Navegação em páginas autenticadas
-* Controle de sessão
-* Regressão dos principais fluxos
-
----
-
-## Tipos de teste
-
-A suíte contempla ou prevê os seguintes tipos de validação:
-
-* Testes funcionais
-* Testes End-to-End
-* Testes positivos
-* Testes negativos
-* Testes de regressão
-* Testes de navegação
-* Testes de sessão
-* Testes de persistência
-* Validação de campos obrigatórios
-* Validação de mensagens
-* Validação de regras de negócio
-* Testes com dados inválidos
-* Testes com valores de limite
-
----
-
-## Estrutura do projeto
+# Estrutura do projeto
 
 ```text
 QA-automation-cypress/
 │
 ├── .github/
 │   └── workflows/
-│       └── cypress.yml
 │
 ├── cypress/
 │   ├── e2e/
@@ -108,52 +129,26 @@ QA-automation-cypress/
 │   │   ├── login/
 │   │   ├── accounts/
 │   │   ├── transfer/
-│   │   ├── bill-pay/
-│   │   ├── loan/
-│   │   ├── profile/
-│   │   └── regression/
+│   │   └── Auxiliares/
 │   │
 │   ├── fixtures/
-│   │   ├── registration.json
-│   │   ├── login.json
-│   │   ├── transfer.json
-│   │   ├── billPay.json
-│   │   ├── loan.json
-│   │   └── profile.json
 │   │
 │   ├── pages/
-│   │   ├── HomePage.js
-│   │   ├── RegisterPage.js
-│   │   ├── LoginPage.js
-│   │   ├── AccountsPage.js
-│   │   ├── TransferPage.js
-│   │   ├── BillPayPage.js
-│   │   ├── LoanPage.js
-│   │   └── ProfilePage.js
-│   │
-│   ├── support/
-│   │   ├── commands.js
-│   │   └── e2e.js
 │   │
 │   ├── screenshots/
-│   └── videos/
+│   │
+│   ├── videos/
+│   │
+│   └── support/
+│       ├── commands.js
+│       └── e2e.js
 │
-├── Documentation/
-│   ├── Planejamento/
-│   │   ├── Backlog.md
-│   │   ├── Plano_de_Desenvolvimento.md
-│   │   └── Sprints.md
-│   │
-│   ├── Testes/
-│   │   ├── Plano_de_Testes.md
-│   │   ├── Cenarios_de_Teste.md
-│   │   ├── Casos_de_Teste.md
-│   │   ├── Criterios_de_Aceite.md
-│   │   └── Massa_de_Teste.md
-│   │
-│   └── Defeitos/
-│       ├── Registro_de_Defeitos.md
-│       └── Bug_Report_Template.md
+├── Documentação/
+│   ├── Implementados/
+│   ├── Planejados/
+│   ├── Arquitetura/
+│   ├── BACKLOG.md
+│   └── CHANGELOG.md
 │
 ├── cypress.config.js
 ├── package.json
@@ -161,79 +156,181 @@ QA-automation-cypress/
 └── README.md
 ```
 
-A estrutura poderá sofrer ajustes durante o desenvolvimento.
+A estrutura pode evoluir conforme novas funcionalidades e necessidades técnicas forem implementadas.
 
 ---
 
-## Arquitetura
+# Onde encontrar cada informação
 
-O projeto utiliza o padrão **Page Object Model — POM**.
+A pasta `Documentação/` foi dividida para evitar que a mesma informação precise ser mantida em vários documentos.
 
-Nesse padrão, os seletores e as ações realizadas nas páginas são mantidos em arquivos separados dos testes.
+| Local            | O que contém                                       |
+| ---------------- | -------------------------------------------------- |
+| `Implementados/` | Funcionalidades e testes que já existem no projeto |
+| `Planejados/`    | Funcionalidades que ainda serão implementadas      |
+| `Arquitetura/`   | Padrões e decisões técnicas da automação           |
+| `BACKLOG.md`     | Trabalho que ainda precisa ser realizado           |
+| `CHANGELOG.md`   | Histórico das mudanças do projeto                  |
 
-Exemplo:
+### Por onde começar
 
-```javascript
-class LoginPage {
-  elements = {
-    usernameInput: () => cy.get('input[name="username"]'),
-    passwordInput: () => cy.get('input[name="password"]'),
-    loginButton: () => cy.get('input[value="Log In"]')
-  }
+Se você quer entender **o que já foi automatizado**:
 
-  fillUsername(username) {
-    this.elements.usernameInput().clear().type(username)
-  }
-
-  fillPassword(password) {
-    this.elements.passwordInput().clear().type(password)
-  }
-
-  submitLogin() {
-    this.elements.loginButton().click()
-  }
-
-  login(username, password) {
-    this.fillUsername(username)
-    this.fillPassword(password)
-    this.submitLogin()
-  }
-}
-
-export default new LoginPage()
+```text
+Documentação/Implementados/
 ```
 
-Exemplo de utilização:
+Se quer saber **o que ainda falta implementar**:
 
-```javascript
-import loginPage from '../../pages/LoginPage'
+```text
+Documentação/Planejados/
+Documentação/BACKLOG.md
+```
 
-describe('Login', () => {
-  it('deve realizar login com credenciais válidas', () => {
-    cy.visit('/')
+Se quer entender **como a automação foi estruturada**:
 
-    loginPage.login(
-      Cypress.env('username'),
-      Cypress.env('password')
-    )
+```text
+Documentação/Arquitetura/
+```
 
-    cy.contains('Accounts Overview').should('be.visible')
-  })
-})
+Se quer saber **o que mudou ao longo do projeto**:
+
+```text
+Documentação/CHANGELOG.md
 ```
 
 ---
 
-## Pré-requisitos
+# Funcionalidades implementadas
 
-Antes de executar o projeto, instale:
+## Cadastro
+
+Local dos testes:
+
+```text
+cypress/e2e/register/
+```
+
+Documentação:
+
+```text
+Documentação/Implementados/Cadastro.md
+```
+
+O fluxo possui cenários de cadastro válido e validações de dados obrigatórios e inválidos.
+
+---
+
+## Login e Logout
+
+Local dos testes:
+
+```text
+cypress/e2e/login/
+```
+
+Documentação:
+
+```text
+Documentação/Implementados/Login.md
+```
+
+O fluxo utiliza o usuário criado pelo cadastro e também contempla cenários de credenciais inválidas e logout.
+
+---
+
+## Contas
+
+Local dos testes:
+
+```text
+cypress/e2e/accounts/
+```
+
+Documentação:
+
+```text
+Documentação/Implementados/Contas.md
+```
+
+São validados:
+
+* consulta das contas;
+* detalhes da conta;
+* histórico de transações;
+* detalhes de uma transação.
+
+---
+
+## Transferências
+
+Local dos testes:
+
+```text
+cypress/e2e/transfer/
+```
+
+Documentação:
+
+```text
+Documentação/Implementados/Transferências.md
+```
+
+São contemplados cenários de:
+
+* transferência válida;
+* ausência de valor;
+* valor zero;
+* valor negativo;
+* valor não numérico;
+* transferência para a mesma conta.
+
+---
+
+# Arquitetura
+
+O projeto utiliza **Page Object Model (POM)**.
+
+A ideia principal é separar:
+
+```text
+Cenário de teste
+       │
+       ▼
+Page Object
+       │
+       ▼
+Interface da aplicação
+```
+
+Os testes descrevem **o que está sendo validado**, enquanto os Page Objects concentram **como a aplicação é utilizada**.
+
+Os detalhes da arquitetura estão em:
+
+```text
+Documentação/Arquitetura/
+```
+
+Principais documentos:
+
+* `Estrutura.md`
+* `Page_Object_Model.md`
+* `Fixtures.md`
+* `Evidencias.md`
+* `Configuracao_Cypress.md`
+
+---
+
+# Pré-requisitos
+
+Para executar o projeto localmente, é necessário ter:
 
 * Node.js
 * npm
 * Git
-* Google Chrome ou outro navegador compatível
+* um navegador compatível com Cypress
 
-Para verificar as versões instaladas:
+Verifique as versões instaladas:
 
 ```bash
 node --version
@@ -243,37 +340,33 @@ git --version
 
 ---
 
-## Clonando o repositório
+# Instalação
+
+Clone o repositório:
 
 ```bash
 git clone https://github.com/CafeteriaDaYuumi/QA-automation-cypress.git
 ```
 
-Acesse a pasta do projeto:
+Entre na pasta:
 
 ```bash
 cd QA-automation-cypress
 ```
 
----
-
-## Instalando as dependências
+Instale as dependências:
 
 ```bash
 npm install
 ```
 
-Caso o projeto ainda não possua o Cypress instalado:
-
-```bash
-npm install cypress --save-dev
-```
-
 ---
 
-## Abrindo o Cypress
+# Executando os testes
 
-Para abrir a interface gráfica:
+## Interface do Cypress
+
+Para abrir o Cypress:
 
 ```bash
 npx cypress open
@@ -281,15 +374,15 @@ npx cypress open
 
 Depois:
 
-1. Selecione a opção de testes End-to-End.
-2. Escolha o navegador.
-3. Selecione o arquivo de teste desejado.
+1. selecione **E2E Testing**;
+2. escolha o navegador;
+3. selecione o teste que deseja executar.
 
 ---
 
-## Executando em modo headless
+## Execução em modo headless
 
-Para executar todos os testes sem abrir a interface:
+Para executar a suíte sem abrir a interface:
 
 ```bash
 npx cypress run
@@ -297,378 +390,180 @@ npx cypress run
 
 ---
 
-## Executando em um navegador específico
-
-### Google Chrome
+## Executando no Chrome
 
 ```bash
 npx cypress run --browser chrome
 ```
 
-### Electron
-
-```bash
-npx cypress run --browser electron
-```
-
 ---
 
-## Executando um único arquivo
+## Executando um único teste
+
+Exemplo:
 
 ```bash
 npx cypress run --spec "cypress/e2e/login/login.cy.js"
 ```
 
----
-
-## Scripts npm
-
-Exemplo de configuração no `package.json`:
-
-```json
-{
-  "scripts": {
-    "cy:open": "cypress open",
-    "cy:run": "cypress run",
-    "cy:chrome": "cypress run --browser chrome",
-    "test": "cypress run"
-  }
-}
-```
-
-Com essa configuração, os comandos poderão ser executados desta forma:
-
-```bash
-npm run cy:open
-```
-
-```bash
-npm run cy:run
-```
-
-```bash
-npm run cy:chrome
-```
+Substitua o caminho pelo spec que deseja executar.
 
 ---
 
-## Configuração da URL base
+# Evidências
 
-Exemplo de configuração no arquivo `cypress.config.js`:
+Durante a execução, os testes podem gerar screenshots e vídeos.
 
-```javascript
-const { defineConfig } = require('cypress')
-
-module.exports = defineConfig({
-  e2e: {
-    baseUrl: 'https://parabank.parasoft.com/parabank',
-    setupNodeEvents(on, config) {
-      return config
-    }
-  },
-  video: true,
-  screenshotOnRunFailure: true
-})
-```
-
-Com a URL base configurada, os testes poderão utilizar:
-
-```javascript
-cy.visit('/index.htm')
-```
-
----
-
-## Massa de teste
-
-Os dados reutilizáveis deverão ser armazenados em arquivos da pasta:
-
-```text
-cypress/fixtures/
-```
-
-Exemplo:
-
-```json
-{
-  "validUser": {
-    "firstName": "Victor",
-    "lastName": "Cypress",
-    "address": "Rua dos Testes, 150",
-    "city": "Betim",
-    "state": "MG",
-    "zipCode": "32600100",
-    "phone": "31988887777",
-    "ssn": "123456789",
-    "password": "Cypress@123",
-    "confirmPassword": "Cypress@123"
-  }
-}
-```
-
-O nome de usuário utilizado nos testes de cadastro deverá ser gerado dinamicamente para evitar duplicidade:
-
-```javascript
-const username = `qa_cypress_${Date.now()}`
-```
-
----
-
-## Variáveis de ambiente
-
-Credenciais e informações que não devem permanecer diretamente no código poderão ser fornecidas por variáveis de ambiente.
-
-Exemplo:
-
-```javascript
-Cypress.env('username')
-Cypress.env('password')
-```
-
-Execução pelo terminal:
-
-```bash
-npx cypress run --env username=usuario_teste,password=SenhaTeste123
-```
-
-Também poderá ser utilizado um arquivo local `cypress.env.json`:
-
-```json
-{
-  "username": "usuario_teste",
-  "password": "SenhaTeste123"
-}
-```
-
-Esse arquivo não deverá ser publicado caso contenha informações que não devam ficar no repositório.
-
-Exemplo para o `.gitignore`:
-
-```text
-cypress.env.json
-```
-
----
-
-## Integração contínua
-
-O projeto utilizará GitHub Actions para executar os testes automaticamente.
-
-Exemplo de workflow:
-
-```yaml
-name: Cypress E2E Tests
-
-on:
-  push:
-    branches:
-      - main
-      - develop
-
-  pull_request:
-    branches:
-      - main
-
-  workflow_dispatch:
-
-jobs:
-  cypress-run:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout do repositório
-        uses: actions/checkout@v4
-
-      - name: Executar testes Cypress
-        uses: cypress-io/github-action@v6
-        with:
-          browser: chrome
-
-      - name: Publicar screenshots
-        if: failure()
-        uses: actions/upload-artifact@v4
-        with:
-          name: cypress-screenshots
-          path: cypress/screenshots
-          if-no-files-found: ignore
-
-      - name: Publicar vídeos
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: cypress-videos
-          path: cypress/videos
-          if-no-files-found: ignore
-```
-
----
-
-## Evidências
-
-Durante as execuções, o Cypress poderá gerar:
-
-* Screenshots de falhas
-* Vídeos das execuções
-* Logs no terminal
-* Resultados no GitHub Actions
-* Relatórios adicionais
-
-Pastas padrão:
+Os arquivos ficam nas pastas:
 
 ```text
 cypress/screenshots/
 cypress/videos/
 ```
 
----
+Os testes também utilizam `cy.screenshot()` para registrar estados importantes dos fluxos.
 
-## Documentação
+Além disso, o Cypress está configurado para gerar screenshot em caso de falha.
 
-A documentação do projeto está organizada na pasta:
+As regras e detalhes sobre evidências estão documentados em:
 
 ```text
-Documentation/
+Documentação/Arquitetura/Evidencias.md
 ```
 
-### Planejamento
+---
 
-* Backlog
-* Plano de desenvolvimento
-* Organização das sprints
+# Massa de teste
 
-### Testes
+Os dados reutilizáveis ficam em:
 
-* Plano de testes
-* Cenários de teste
-* Casos de teste
-* Critérios de aceite
-* Massa de teste
+```text
+cypress/fixtures/
+```
 
-### Defeitos
+Entre os arquivos utilizados atualmente estão:
 
-* Registro de defeitos
-* Modelo de bug report
-* Evidências relacionadas
+```text
+registration.json
+login.json
+createdUser.json
+createdUser2.json
+```
+
+Os arquivos `createdUser.json` e `createdUser2.json` são utilizados para armazenar usuários criados durante os fluxos de teste.
+
+A estratégia de fixtures está detalhada em:
+
+```text
+Documentação/Arquitetura/Fixtures.md
+```
 
 ---
 
-## Organização das sprints
+# Configuração
 
-| Sprint   | Escopo                         |
-| -------- | ------------------------------ |
-| Sprint 0 | Configuração do ambiente       |
-| Sprint 1 | Cadastro                       |
-| Sprint 2 | Login e logout                 |
-| Sprint 3 | Contas e transações            |
-| Sprint 4 | Transferências                 |
-| Sprint 5 | Pagamento de contas            |
-| Sprint 6 | Solicitação de empréstimo      |
-| Sprint 7 | Atualização de perfil          |
-| Sprint 8 | Regressão e refatoração        |
-| Sprint 9 | CI/CD, relatórios e evidências |
+A configuração principal do Cypress está em:
 
----
+```text
+cypress.config.js
+```
 
-## Critérios para conclusão
+A aplicação ParaBank é definida como `baseUrl`, permitindo utilizar caminhos relativos nos testes.
 
-Uma funcionalidade será considerada concluída quando:
+Exemplo:
 
-* Os casos de teste estiverem documentados.
-* A massa de teste estiver definida.
-* Os cenários estiverem automatizados.
-* Os testes estiverem executando de forma estável.
-* Os Page Objects estiverem atualizados.
-* As falhas encontradas estiverem analisadas.
-* Os defeitos estiverem registrados.
-* As evidências estiverem disponíveis.
-* A documentação estiver atualizada.
-* O código estiver versionado no GitHub.
+```javascript
+cy.visit('/index.htm')
+```
+
+As demais configurações técnicas estão documentadas em:
+
+```text
+Documentação/Arquitetura/Configuracao_Cypress.md
+```
 
 ---
 
-## Boas práticas adotadas
+# Tecnologias
 
-* Page Object Model
-* Separação entre teste e interação com páginas
-* Uso de fixtures
-* Geração de dados dinâmicos
-* Testes independentes sempre que possível
-* Seletores centralizados
-* Evitar esperas fixas
-* Evidências em caso de falha
-* Versionamento com Git
-* Documentação em Markdown
-* Execução automatizada em CI/CD
+* **Cypress** — automação End-to-End
+* **JavaScript** — linguagem utilizada nos testes
+* **Node.js / npm** — execução e gerenciamento de dependências
+* **Git / GitHub** — versionamento
+* **Markdown** — documentação
 
 ---
 
-## Registro de defeitos
+# Estado atual do projeto
 
-Os defeitos identificados durante os testes deverão conter:
+Atualmente, a automação possui os seguintes fluxos implementados:
 
-* Identificador
-* Título
-* Descrição
-* Ambiente
-* Pré-condições
-* Passos para reprodução
-* Resultado esperado
-* Resultado obtido
-* Severidade
-* Prioridade
-* Status
-* Evidências
+```text
+Cadastro
+   │
+   ▼
+Login / Logout
+   │
+   ▼
+Contas
+   │
+   ├── Detalhes da conta
+   ├── Histórico
+   └── Detalhes da transação
+   │
+   ▼
+Transferências
+```
 
-Os registros poderão ser mantidos na documentação ou em Issues do GitHub.
+Funcionalidades ainda não implementadas permanecem fora de `Implementados/` e são controladas através de:
 
----
-
-## Possíveis melhorias futuras
-
-* Relatórios com Mochawesome
-* Relatórios com Allure
-* Testes orientados a dados
-* Uso de interceptações com `cy.intercept()`
-* Validações de API durante os fluxos E2E
-* Execução em múltiplos navegadores
-* Execução paralela
-* Testes de acessibilidade
-* Testes de responsividade
-* Configuração de lint
-* Configuração de Prettier
-* Cobertura de novos fluxos
-* Integração com ferramentas de gerenciamento de testes
+```text
+Documentação/Planejados/
+Documentação/BACKLOG.md
+```
 
 ---
 
-## Limitações
+# Próximos passos
 
-* O ParaBank é um ambiente público de demonstração.
-* A aplicação poderá apresentar lentidão ou indisponibilidade.
-* Usuários cadastrados podem permanecer salvos no ambiente.
-* Contas e dados podem variar entre usuários.
-* Algumas regras de validação podem não estar implementadas.
-* Falhas do ambiente não devem ser classificadas automaticamente como defeitos funcionais.
-* Números de conta devem ser obtidos dinamicamente sempre que possível.
+O que será desenvolvido posteriormente não é definido neste README.
+
+Para consultar o trabalho pendente, consulte:
+
+```text
+Documentação/BACKLOG.md
+```
+
+Para consultar a descrição das funcionalidades futuras:
+
+```text
+Documentação/Planejados/
+```
+
+Isso mantém o README como **ponto de entrada do projeto**, sem transformá-lo em uma segunda versão do backlog ou da documentação de testes.
 
 ---
 
-## Repositório
+# Histórico
+
+As principais alterações do projeto são registradas em:
+
+```text
+Documentação/CHANGELOG.md
+```
+
+O CHANGELOG mantém o histórico das versões e das funcionalidades implementadas.
+
+---
+
+# Repositório
 
 https://github.com/CafeteriaDaYuumi/QA-automation-cypress
 
 ---
 
-## Autor
+## Finalidade
 
-**Victor Hugo**
+Este projeto foi desenvolvido para estudo e demonstração de práticas de **Quality Assurance**, automação de testes End-to-End, organização de código, Page Object Model, massa de teste e documentação de testes.
 
-Estudante de Análise e Desenvolvimento de Sistemas e profissional com experiência em testes de software, automação, validação de APIs, documentação de testes e suporte de TI.
-
----
-
-## Licença
-
-Este projeto foi desenvolvido para fins de estudo, prática e demonstração de conhecimentos em Quality Assurance e automação de testes.
-
-A aplicação ParaBank pertence aos seus respectivos responsáveis.
+A aplicação ParaBank é utilizada exclusivamente como ambiente de demonstração para a automação.
