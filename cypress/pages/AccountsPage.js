@@ -1,61 +1,76 @@
 class AccountsPage {
 
-  setOverviewSelectors() {
-    // ACCOUNT001
-    cy.get('#showOverview')
-      .as('accountOverview')
+  // --- ACCOUNT001 - VISÃO GERAL DA CONTA ---
 
-    cy.get('#accountTable tbody tr a')
-      .as('accountLink')
-
-    cy.get('thead > tr > :nth-child(1)')
-      .as('accountColumn')
-
-    cy.get('tfoot > tr > td')
-      .as('accountFooter')
+  get accountOverview() {
+    return cy.get('#showOverview')
   }
 
-  setActivitySelectors() {
-    // ACCOUNT002
-    cy.get('#accountDetails > table')
-      .as('accountDetailsTable')
-
-    cy.get('#activityForm')
-      .as('activityForm')
-
-    cy.get('thead > tr > :nth-child(2)')
-      .as('activityColumn')
-
-    cy.get('thead > tr > :nth-child(4)')
-      .as('activityColumnLast')
-
-    // ACCOUNT003
-    cy.get('#accountActivity > .title')
-      .as('accountActivityTitle')
-
-    cy.get('#transactionTable')
-      .as('transactionTable')
-
-    // ACCOUNT004
-    cy.get('#accountDetails > .title')
-      .as('accountDetailsTitle')
-
-    cy.get('#accountDetails > table > tbody > :nth-child(1) > [align="right"]')
-      .as('accountDetail')
-
-    cy.get(':nth-child(3) > [align="right"]')
-      .as('transactionDetail')
-
-    cy.get('.form_activity > tbody > :nth-child(2) > [align="right"]')
-      .as('transactionAmount')
+  get accountLink() {
+    return cy.get('#accountTable tbody tr a')
   }
+
+  get accountColumn() {
+    return cy.get('thead > tr > :nth-child(1)')
+  }
+
+  get accountFooter() {
+    return cy.get('tfoot > tr > td')
+  }
+
+  // --- ACCOUNT002 - ATIVIDADE DA CONTA ---
+
+  get accountDetailsTable() {
+    return cy.get('#accountDetails > table')
+  }
+
+  get activityForm() {
+    return cy.get('#activityForm')
+  }
+
+  get activityColumn() {
+    return cy.get('thead > tr > :nth-child(2)')
+  }
+
+  get activityColumnLast() {
+    return cy.get('thead > tr > :nth-child(4)')
+  }
+
+  // --- ACCOUNT003 - TRANSAÇÕES DA CONTA ---
+
+  get accountActivityTitle() {
+    return cy.get('#accountActivity > .title')
+  }
+
+  get transactionTable() {
+    return cy.get('#transactionTable')
+  }
+
+  // --- ACCOUNT004 - DETALHES DA TRANSAÇÃO ---
+
+  get accountDetailsTitle() {
+    return cy.get('#accountDetails > .title')
+  }
+
+  get accountDetail() {
+    return cy.get('#accountDetails > table > tbody > :nth-child(1) > [align="right"]')
+  }
+
+  get transactionDetail() {
+    return cy.get(':nth-child(3) > [align="right"]')
+  }
+
+  get transactionAmount() {
+    return cy.get('.form_activity > tbody > :nth-child(2) > [align="right"]')
+  }
+
+  // --- AÇÕES ---
 
   accessAccount() {
-    cy.get('@accountLink')
+    this.accountLink
       .first()
       .click()
   }
-
 }
 
 export default new AccountsPage()

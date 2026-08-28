@@ -1,67 +1,112 @@
 class RegisterPage {
-  setSelectors() {
-    cy.get('[name="customer.firstName"]').as('firstName')
-    cy.get('[name="customer.lastName"]').as('lastName')
-    cy.get('[name="customer.address.street"]').as('address')
-    cy.get('[name="customer.address.city"]').as('city')
-    cy.get('[name="customer.address.state"]').as('state')
-    cy.get('[name="customer.address.zipCode"]').as('zipCode')
-    cy.get('[name="customer.phoneNumber"]').as('phone')
-    cy.get('[name="customer.ssn"]').as('ssn')
-    cy.get('[name="customer.username"]').as('username')
-    cy.get('[name="customer.password"]').as('password')
-    cy.get('[name="repeatedPassword"]').as('confirmPassword')
-    cy.get('input[type="submit"][value="Register"]').as('registerButton')
+
+  // --- CAMPOS DO FORMULÁRIO ---
+
+  get firstName() {
+    return cy.get('[name="customer.firstName"]')
   }
 
+  get lastName() {
+    return cy.get('[name="customer.lastName"]')
+  }
+
+  get address() {
+    return cy.get('[name="customer.address.street"]')
+  }
+
+  get city() {
+    return cy.get('[name="customer.address.city"]')
+  }
+
+  get state() {
+    return cy.get('[name="customer.address.state"]')
+  }
+
+  get zipCode() {
+    return cy.get('[name="customer.address.zipCode"]')
+  }
+
+  get phone() {
+    return cy.get('[name="customer.phoneNumber"]')
+  }
+
+  get ssn() {
+    return cy.get('[name="customer.ssn"]')
+  }
+
+  get username() {
+    return cy.get('[name="customer.username"]')
+  }
+
+  get password() {
+    return cy.get('[name="customer.password"]')
+  }
+
+  get confirmPassword() {
+    return cy.get('[name="repeatedPassword"]')
+  }
+
+  // --- BOTÃO ---
+
+  get registerButton() {
+    return cy.get('input[type="submit"][value="Register"]')
+  }
+
+   // --- AÇÕES ---
+
   fillFirstName(firstName) {
-    cy.get('@firstName').type(firstName)
+    this.firstName.type(firstName)
   }
 
   fillLastName(lastName) {
-    cy.get('@lastName').type(lastName)
+    this.lastName.type(lastName)
   }
 
   fillAddress(address) {
-    cy.get('@address').type(address)
+    this.address.type(address)
   }
 
   fillCity(city) {
-    cy.get('@city').type(city)
+    this.city.type(city)
   }
 
   fillState(state) {
-    cy.get('@state').type(state)
+    this.state.type(state)
   }
 
   fillZipCode(zipCode) {
-    cy.get('@zipCode').type(zipCode)
+    this.zipCode.type(zipCode)
   }
 
   fillPhone(phone) {
-    cy.get('@phone').type(phone)
+    this.phone.type(phone)
   }
 
   fillSsn(ssn) {
-    cy.get('@ssn').type(ssn)
+    this.ssn.type(ssn)
   }
 
   fillUsername(username) {
-    cy.get('@username').type(username)
+    this.username.type(username)
   }
 
   fillPassword(password) {
-    cy.get('@password').type(password)
+    this.password.type(password)
   }
 
   fillConfirmPassword(password) {
-    cy.get('@confirmPassword').type(password)
+    this.confirmPassword.type(password)
   }
+
+  // --- AÇÕES ---
 
   submit() {
-    cy.get('@registerButton').click()
+    this.registerButton.click()
   }
 
+  // --- FLUXOS DE CADASTRO ---
+
+  // REGISTER001 - Cadastro de usuário com dados válidos
   register(user) {
     this.fillFirstName(user.firstName)
     this.fillLastName(user.lastName)
@@ -74,14 +119,15 @@ class RegisterPage {
     this.fillUsername(user.username)
     this.fillPassword(user.password)
     this.fillConfirmPassword(user.password)
-
     this.submit()
   }
 
+  // REGISTER002 - Tentativa de cadastro sem preencher os campos
   registerWithoutData() {
     this.submit()
   }
 
+  // REGISTER003 - Cadastro com senhas diferentes
   registerWithPasswordMismatch(user) {
     this.fillFirstName(user.firstName)
     this.fillLastName(user.lastName)
@@ -94,7 +140,6 @@ class RegisterPage {
     this.fillUsername(user.username)
     this.fillPassword(user.password)
     this.fillConfirmPassword('SenhaDiferente@123')
-
     this.submit()
   }
 }

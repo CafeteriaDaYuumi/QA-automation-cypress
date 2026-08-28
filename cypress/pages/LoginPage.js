@@ -1,23 +1,49 @@
 class LoginPage {
-  setSelectors() {
-    cy.get('input[name="username"]').as('username')
-    cy.get('input[name="password"]').as('password')
-    cy.get('input[type="submit"][value="Log In"]').as('loginButton')
-  }
 
-  fillCredentials(user) {
-    cy.get('@username').clear().type(user.username)
-    cy.get('@password').clear().type(user.password)
-  }
+    // --- CAMPOS DO FORMULÁRIO ---
 
-  submit() {
-    cy.get('@loginButton').click()
-  }
+    get username() {
+        return cy.get('input[name="username"]')
+    }
 
-  login(user) {
-    this.fillCredentials(user)
-    this.submit()
-  }
+    get password() {
+        return cy.get('input[name="password"]')
+    }
+
+    // --- BOTÃO ---
+
+    get loginButton() {
+        return cy.get('input[type="submit"][value="Log In"]')
+    }
+
+    // --- PREENCHIMENTO DOS CAMPOS ---
+
+    fillUsername(username) {
+        this.username
+            .clear()
+            .type(username)
+    }
+
+    fillPassword(password) {
+        this.password
+            .clear()
+            .type(password)
+    }
+
+    // --- AÇÕES ---
+
+    submit() {
+        this.loginButton.click()
+    }
+
+    // --- FLUXO DE LOGIN ---
+
+    // LOGIN001 - Realizar login com usuário e senha válidos
+    login(user) {
+        this.fillUsername(user.username)
+        this.fillPassword(user.password)
+        this.submit()
+    }
 }
 
 export default new LoginPage()

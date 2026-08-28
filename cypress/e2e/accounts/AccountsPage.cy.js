@@ -4,110 +4,108 @@ import AccountsPage from '../../pages/AccountsPage'
 
 describe('Contas', () => {
 
-  beforeEach(() => {
-    cy.readFile('cypress/fixtures/createdUser.json').then((user) => {
+    beforeEach(() => {
+        cy.readFile('cypress/fixtures/createdUser.json').then((user) => {
 
-      HomePage.visit()
+            HomePage.visit()
 
-      LoginPage.setSelectors()
-      LoginPage.login(user)
+            LoginPage.login(user)
 
-      cy.url()
-        .should('include', '/overview.htm')
-
-      AccountsPage.setOverviewSelectors()
+            cy.url()
+                .should('include', '/overview.htm')
+        })
     })
-  })
 
-  it('ACCOUNT001 - deve consultar as contas disponíveis', () => {
-    cy.screenshot('Accounts/ACCOUNT001-before')
+    // ACCOUNT001 - Consultar as contas disponíveis
+    it('ACCOUNT001 - deve consultar as contas disponíveis', () => {
 
-    cy.get('@accountOverview')
-      .should('be.visible')
+        cy.screenshot('Accounts/ACCOUNT001-before')
 
-    cy.get('@accountColumn')
-      .should('be.visible')
+        AccountsPage.accountOverview
+            .should('be.visible')
 
-    cy.get('@accountFooter')
-      .should('be.visible')
+        AccountsPage.accountColumn
+            .should('be.visible')
 
-    cy.get('@accountLink')
-      .should('exist')
-      .and('have.length.greaterThan', 0)
+        AccountsPage.accountFooter
+            .should('be.visible')
 
-    cy.screenshot('Accounts/ACCOUNT001-result')
-  })
+        AccountsPage.accountLink
+            .should('exist')
+            .and('have.length.greaterThan', 0)
 
-  it('ACCOUNT002 - deve consultar os detalhes de uma conta', () => {
-    cy.screenshot('Accounts/ACCOUNT002-before')
+        cy.screenshot('Accounts/ACCOUNT001-result')
+    })
 
-    AccountsPage.accessAccount()
+    // ACCOUNT002 - Consultar os detalhes de uma conta
+    it('ACCOUNT002 - deve consultar os detalhes de uma conta', () => {
 
-    cy.url()
-      .should('include', '/activity.htm')
+        cy.screenshot('Accounts/ACCOUNT002-before')
 
-    AccountsPage.setActivitySelectors()
+        AccountsPage.accessAccount()
 
-    cy.get('@accountDetailsTable')
-      .should('be.visible')
+        cy.url()
+            .should('include', '/activity.htm')
 
-    cy.get('@activityForm')
-      .should('be.visible')
+        AccountsPage.accountDetailsTable
+            .should('be.visible')
 
-    cy.get('@activityColumn')
-      .should('be.visible')
+        AccountsPage.activityForm
+            .should('be.visible')
 
-    cy.get('@activityColumnLast')
-      .should('be.visible')
+        AccountsPage.activityColumn
+            .should('be.visible')
 
-    cy.screenshot('Accounts/ACCOUNT002-result')
-  })
+        AccountsPage.activityColumnLast
+            .should('be.visible')
 
-  it('ACCOUNT003 - deve consultar o histórico de transações', () => {
-    cy.screenshot('Accounts/ACCOUNT003-before')
+        cy.screenshot('Accounts/ACCOUNT002-result')
+    })
 
-    AccountsPage.accessAccount()
+    // ACCOUNT003 - Consultar o histórico de transações
+    it('ACCOUNT003 - deve consultar o histórico de transações', () => {
 
-    cy.url()
-      .should('include', '/activity.htm')
+        cy.screenshot('Accounts/ACCOUNT003-before')
 
-    AccountsPage.setActivitySelectors()
+        AccountsPage.accessAccount()
 
-    cy.get('@accountActivityTitle')
-      .should('be.visible')
+        cy.url()
+            .should('include', '/activity.htm')
 
-    cy.get('@transactionTable')
-      .should('be.visible')
+        AccountsPage.accountActivityTitle
+            .should('be.visible')
 
-    cy.screenshot('Accounts/ACCOUNT003-result')
-  })
+        AccountsPage.transactionTable
+            .should('be.visible')
 
-  it('ACCOUNT004 - deve consultar os detalhes de uma transação', () => {
-    cy.screenshot('Accounts/ACCOUNT004-before')
+        cy.screenshot('Accounts/ACCOUNT003-result')
+    })
 
-    AccountsPage.accessAccount()
+    // ACCOUNT004 - Consultar os detalhes de uma transação
+    it('ACCOUNT004 - deve consultar os detalhes de uma transação', () => {
 
-    cy.url()
-      .should('include', '/activity.htm')
+        cy.screenshot('Accounts/ACCOUNT004-before')
 
-    AccountsPage.setActivitySelectors()
+        AccountsPage.accessAccount()
 
-    cy.get('@accountActivityTitle')
-      .should('be.visible')
+        cy.url()
+            .should('include', '/activity.htm')
 
-    cy.get('@accountDetailsTitle')
-      .should('be.visible')
+        AccountsPage.accountActivityTitle
+            .should('be.visible')
 
-    cy.get('@accountDetail')
-      .should('be.visible')
+        AccountsPage.accountDetailsTitle
+            .should('be.visible')
 
-    cy.get('@transactionDetail')
-      .should('be.visible')
+        AccountsPage.accountDetail
+            .should('be.visible')
 
-    cy.get('@transactionAmount')
-      .should('be.visible')
+        AccountsPage.transactionDetail
+            .should('be.visible')
 
-    cy.screenshot('Accounts/ACCOUNT004-result')
-  })
+        AccountsPage.transactionAmount
+            .should('be.visible')
 
+        cy.screenshot('Accounts/ACCOUNT004-result')
+    })
 })

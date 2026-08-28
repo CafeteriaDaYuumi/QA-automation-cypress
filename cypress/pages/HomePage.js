@@ -1,18 +1,27 @@
 class HomePage {
+
+  // --- NAVEGAÇÃO ---
+
+  get registerLink() {
+    return cy.contains('Register')
+  }
+
+  get logoutLink() {
+    return cy.get('#leftPanel > ul > :nth-child(8) > a')
+  }
+
+  // --- AÇÕES ---
+
   visit() {
     cy.visit('/index.htm')
   }
 
   accessRegister() {
-    cy.contains('Register').click()
-  }
-
-  setSelectors() {
-    cy.get('#leftPanel > ul > :nth-child(8) > a').as('logout')
+    this.registerLink.click()
   }
 
   logout() {
-    cy.get('@logout').click()
+    this.logoutLink.click()
   }
 }
 
