@@ -1,12 +1,39 @@
 const cypress = require('cypress')
 
 
-async function executeStep(step) {
+function createFlowId() {
+
+    const now = new Date()
+
+    const day = String(now.getDate()).padStart(2, '0')
+    const month = String(now.getMonth() + 1).padStart(2, '0')
+    const year = now.getFullYear()
+
+    const hours = String(now.getHours()).padStart(2, '0')
+    const minutes = String(now.getMinutes()).padStart(2, '0')
+    const seconds = String(now.getSeconds()).padStart(2, '0')
+
+    return `flow-${day}-${month}-${year}_${hours}-${minutes}-${seconds}`
+}
+
+
+async function executeStep(step, flowId) {
 
     console.log('\n========================================')
     console.log(`▶ ${step.name}`)
     console.log(`   ID: ${step.id}`)
     console.log('========================================\n')
+
+
+    // ==================================================
+    // PASTAS DE EVIDÊNCIA
+    // ==================================================
+
+    const screenshotsFolder =
+        `cypress/evidence flow/${flowId}/${step.id}/photos`
+
+    const videosFolder =
+        `cypress/evidence flow/${flowId}/${step.id}/videos`
 
 
     // ==================================================
@@ -18,7 +45,16 @@ async function executeStep(step) {
     try {
 
         results = await cypress.run({
-            spec: step.spec
+
+            spec: step.spec,
+
+            config: {
+
+                screenshotsFolder,
+                videosFolder,
+
+                trashAssetsBeforeRuns: false
+            }
         })
 
     } catch (error) {
@@ -84,10 +120,6 @@ async function executeStep(step) {
         })
 
 
-        // ==============================================
-        // TESTE NÃO ENCONTRADO
-        // ==============================================
-
         if (!foundTest) {
 
             console.error('❌ TESTE DA CONDITION NÃO ENCONTRADO')
@@ -107,10 +139,6 @@ async function executeStep(step) {
         console.log(`   Esperado: ${expected}`)
         console.log(`   Obtido:   ${actual}`)
 
-
-        // ==============================================
-        // CONDITION APROVADA
-        // ==============================================
 
         if (actual === expected) {
 
@@ -147,15 +175,27 @@ async function executeStep(step) {
 
 async function executeFlow(flow) {
 
+    // ==================================================
+    // CRIA ID ÚNICO DA EXECUÇÃO
+    // ==================================================
+
+    const flowId = createFlowId()
+
+
     console.log('\n')
     console.log('########################################')
     console.log(`# ${flow.name}`)
+    console.log(`📁 Evidências: ${flowId}`)
     console.log('########################################')
 
 
+    // ==================================================
+    // EXECUTA OS STEPS
+    // ==================================================
+
     for (const step of flow.steps) {
 
-        const passed = await executeStep(step)
+        const passed = await executeStep(step, flowId)
 
 
         if (!passed) {
@@ -182,4 +222,3 @@ module.exports = {
     executeStep,
     executeFlow
 }
-
