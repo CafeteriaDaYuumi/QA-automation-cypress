@@ -6,7 +6,14 @@
     "cy:open": "cypress open",
     "cy:run": "cypress run",
     "cy:chrome": "cypress run --browser chrome",
-    "test": "cypress run"
+    "test": "cypress run",
+
+    "flow": "node cypress/flows/complete/complete.flow.js",
+
+    "flow:register": "cypress run --spec \"cypress/e2e/register/register.cy.js\"",
+    "flow:login": "cypress run --spec \"cypress/e2e/login/login.cy.js\"",
+    "flow:accounts": "cypress run --spec \"cypress/e2e/accounts/accounts.cy.js\"",
+    "flow:transfer": "cypress run --spec \"cypress/e2e/transfer/transfer.cy.js\""
   },
   "devDependencies": {
     "cypress": "^15.21.1"
