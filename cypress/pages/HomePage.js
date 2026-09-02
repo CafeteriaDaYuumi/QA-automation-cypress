@@ -9,6 +9,10 @@ class HomePage {
   get logoutLink() {
     return cy.get('#leftPanel > ul > :nth-child(8) > a')
   }
+  
+  get transferMenu(){
+    cy.get('#leftPanel > ul > :nth-child(3) > a')
+  }
 
   // --- AÇÕES ---
 

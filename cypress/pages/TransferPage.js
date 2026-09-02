@@ -2,7 +2,7 @@ class TransferPage {
 
     // --- NAVEGAÇÃO ---
 
-    get transferMenu() {
+    get transferLink() {
         return cy.get('a[href="transfer.htm"]')
     }
 
@@ -63,7 +63,7 @@ class TransferPage {
     // --- AÇÕES ---
 
     accessTransfer() {
-        this.transferMenu.click()
+        this.transferLink.click()
     }
 
     fillAmount(amount) {

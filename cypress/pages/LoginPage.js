@@ -16,7 +16,13 @@ class LoginPage {
         return cy.get('input[type="submit"][value="Log In"]')
     }
 
-    // --- PREENCHIMENTO DOS CAMPOS ---
+    // --- NAVEGAÇÃO ---
+
+    visit() {
+        cy.visit('/index.htm')
+    }
+
+    // --- PREENCHIMENTO ---
 
     fillUsername(username) {
         this.username
@@ -30,7 +36,7 @@ class LoginPage {
             .type(password)
     }
 
-    // --- AÇÕES ---
+    // --- AÇÃO ---
 
     submit() {
         this.loginButton.click()
@@ -38,12 +44,17 @@ class LoginPage {
 
     // --- FLUXO DE LOGIN ---
 
-    // LOGIN001 - Realizar login com usuário e senha válidos
     login(user) {
+
+        this.username
+            .should('be.visible')
+
         this.fillUsername(user.username)
         this.fillPassword(user.password)
+
         this.submit()
     }
 }
 
 export default new LoginPage()
+
