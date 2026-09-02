@@ -75,6 +75,23 @@ module.exports = {
                         expected: 'passed'
                     }
                 ]
+            },
+
+            // ==========================================
+            // BILLPAYPAGE 
+            // ==========================================
+
+            {
+                id: 'BillPayPage',
+                name: 'BillPayPage',
+                spec: 'cypress/e2e/BillPayPage/BillPayPage.cy.js',
+
+                conditions: [
+                    {
+                        test: 'BILLPAY001 - deve realizar pagamento de conta com dados válidos',
+                        expected: 'passed'
+                    }
+                ]
             }
 
         ]
