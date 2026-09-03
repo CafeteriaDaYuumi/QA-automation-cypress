@@ -92,6 +92,23 @@ module.exports = {
                         expected: 'passed'
                     }
                 ]
+            },
+
+            // ==========================================
+            // LOAN 
+            // ==========================================
+
+            {
+                id: 'loan',
+                name: 'loan',
+                spec: 'cypress/e2e/loan/loan.cy.js',
+
+                conditions: [
+                    {
+                        test: 'LOAN001 - deve solicitar um empréstimo com dados válidos',
+                        expected: 'passed'
+                    }
+                ]
             }
 
         ]

@@ -161,7 +161,7 @@ As seguintes etapas permanecem planejadas para as próximas Sprints:
 
 # [0.6.0] - Sprint 5 — Pagamento de Contas
 
-**Status:** Planejado
+**Status:** Concluída
 
 ### Planejado
 
@@ -176,7 +176,7 @@ As seguintes etapas permanecem planejadas para as próximas Sprints:
 
 # [0.7.0] - Sprint 6 — Solicitação de Empréstimo
 
-**Status:** Planejado
+**Status:** Concluída
 
 ### Planejado
 
