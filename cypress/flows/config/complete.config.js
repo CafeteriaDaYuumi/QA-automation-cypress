@@ -84,7 +84,7 @@ module.exports = {
             {
                 id: 'BillPayPage',
                 name: 'BillPayPage',
-                spec: 'cypress/e2e/BillPayPage/BillPayPage.cy.js',
+                spec: 'cypress/e2e/billpaypage/billpaypage.cy.js',
 
                 conditions: [
                     {

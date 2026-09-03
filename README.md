@@ -45,7 +45,7 @@ De forma simplificada:
 ```text
 Teste E2E
    │
-   ├── utiliza dados das Fixtures
+   ├── utiliza dados das fixtures
    │
    ├── executa ações através dos Page Objects
    │
@@ -85,7 +85,7 @@ Atualmente existem Page Objects para:
 
 Isso evita espalhar seletores e ações de interface diretamente pelos testes.
 
-### Fixtures
+### fixtures
 
 Os dados de teste ficam em:
 
@@ -129,7 +129,7 @@ QA-automation-cypress/
 │   │   ├── login/
 │   │   ├── accounts/
 │   │   ├── transfer/
-│   │   └── Auxiliares/
+│   │   └── billpaypage/
 │   │
 │   ├── fixtures/
 │   │
@@ -143,10 +143,10 @@ QA-automation-cypress/
 │       ├── commands.js
 │       └── e2e.js
 │
-├── Documentação/
-│   ├── Implementados/
-│   ├── Planejados/
-│   ├── Arquitetura/
+├── documents/
+│   ├── implemented/
+│   ├── planning/
+│   ├── architecture/
 │   ├── BACKLOG.md
 │   └── CHANGELOG.md
 │
@@ -162,13 +162,13 @@ A estrutura pode evoluir conforme novas funcionalidades e necessidades técnicas
 
 # Onde encontrar cada informação
 
-A pasta `Documentação/` foi dividida para evitar que a mesma informação precise ser mantida em vários documentos.
+A pasta `documents/` foi dividida para evitar que a mesma informação precise ser mantida em vários documentos.
 
 | Local            | O que contém                                       |
 | ---------------- | -------------------------------------------------- |
-| `Implementados/` | Funcionalidades e testes que já existem no projeto |
-| `Planejados/`    | Funcionalidades que ainda serão implementadas      |
-| `Arquitetura/`   | Padrões e decisões técnicas da automação           |
+| `implemented/` | Funcionalidades e testes que já existem no projeto |
+| `planning/`    | Funcionalidades que ainda serão implementadas      |
+| `architecture/`   | Padrões e decisões técnicas da automação           |
 | `BACKLOG.md`     | Trabalho que ainda precisa ser realizado           |
 | `CHANGELOG.md`   | Histórico das mudanças do projeto                  |
 
@@ -177,26 +177,26 @@ A pasta `Documentação/` foi dividida para evitar que a mesma informação prec
 Se você quer entender **o que já foi automatizado**:
 
 ```text
-Documentação/Implementados/
+documents/implemented/
 ```
 
 Se quer saber **o que ainda falta implementar**:
 
 ```text
-Documentação/Planejados/
-Documentação/BACKLOG.md
+documents/planning/
+documents/BACKLOG.md
 ```
 
 Se quer entender **como a automação foi estruturada**:
 
 ```text
-Documentação/Arquitetura/
+documents/architecture/
 ```
 
 Se quer saber **o que mudou ao longo do projeto**:
 
 ```text
-Documentação/CHANGELOG.md
+documents/CHANGELOG.md
 ```
 
 ---
@@ -214,7 +214,7 @@ cypress/e2e/register/
 Documentação:
 
 ```text
-Documentação/Implementados/Cadastro.md
+documents/implemented/register.md
 ```
 
 O fluxo possui cenários de cadastro válido e validações de dados obrigatórios e inválidos.
@@ -232,7 +232,7 @@ cypress/e2e/login/
 Documentação:
 
 ```text
-Documentação/Implementados/Login.md
+documents/implemented/Login.md
 ```
 
 O fluxo utiliza o usuário criado pelo cadastro e também contempla cenários de credenciais inválidas e logout.
@@ -250,7 +250,7 @@ cypress/e2e/accounts/
 Documentação:
 
 ```text
-Documentação/Implementados/Contas.md
+documents/implemented/accounts.md
 ```
 
 São validados:
@@ -273,7 +273,7 @@ cypress/e2e/transfer/
 Documentação:
 
 ```text
-Documentação/Implementados/Transferências.md
+documents/implemented/transfer.md
 ```
 
 São contemplados cenários de:
@@ -308,16 +308,16 @@ Os testes descrevem **o que está sendo validado**, enquanto os Page Objects con
 Os detalhes da arquitetura estão em:
 
 ```text
-Documentação/Arquitetura/
+documents/architecture/
 ```
 
 Principais documentos:
 
-* `Estrutura.md`
+* `structure.md`
 * `Page_Object_Model.md`
-* `Fixtures.md`
-* `Evidencias.md`
-* `Configuracao_Cypress.md`
+* `fixtures.md`
+* `evidence.md`
+* `cypress_Configuration.md`
 
 ---
 
@@ -428,7 +428,7 @@ Além disso, o Cypress está configurado para gerar screenshot em caso de falha.
 As regras e detalhes sobre evidências estão documentados em:
 
 ```text
-Documentação/Arquitetura/Evidencias.md
+documents/architecture/evidence.md
 ```
 
 ---
@@ -455,7 +455,7 @@ Os arquivos `createdUser.json` e `createdUser2.json` são utilizados para armaze
 A estratégia de fixtures está detalhada em:
 
 ```text
-Documentação/Arquitetura/Fixtures.md
+documents/architecture/fixtures.md
 ```
 
 ---
@@ -479,7 +479,7 @@ cy.visit('/index.htm')
 As demais configurações técnicas estão documentadas em:
 
 ```text
-Documentação/Arquitetura/Configuracao_Cypress.md
+documents/architecture/Configuracao_Cypress.md
 ```
 
 ---
@@ -515,11 +515,11 @@ Contas
 Transferências
 ```
 
-Funcionalidades ainda não implementadas permanecem fora de `Implementados/` e são controladas através de:
+Funcionalidades ainda não implementadas permanecem fora de `implemented/` e são controladas através de:
 
 ```text
-Documentação/Planejados/
-Documentação/BACKLOG.md
+documents/planning/
+documents/BACKLOG.md
 ```
 
 ---
@@ -531,13 +531,13 @@ O que será desenvolvido posteriormente não é definido neste README.
 Para consultar o trabalho pendente, consulte:
 
 ```text
-Documentação/BACKLOG.md
+documents/BACKLOG.md
 ```
 
 Para consultar a descrição das funcionalidades futuras:
 
 ```text
-Documentação/Planejados/
+documents/planning/
 ```
 
 Isso mantém o README como **ponto de entrada do projeto**, sem transformá-lo em uma segunda versão do backlog ou da documentação de testes.
@@ -549,7 +549,7 @@ Isso mantém o README como **ponto de entrada do projeto**, sem transformá-lo e
 As principais alterações do projeto são registradas em:
 
 ```text
-Documentação/CHANGELOG.md
+documents/CHANGELOG.md
 ```
 
 O CHANGELOG mantém o histórico das versões e das funcionalidades implementadas.
