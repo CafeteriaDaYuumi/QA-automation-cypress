@@ -18,6 +18,10 @@ class HomePage {
         return cy.get('#leftPanel > ul > :nth-child(7) > a');
     }
 
+    get  ProfileMenu(){
+        return cy.get('#leftPanel > ul > :nth-child(6) > a')
+    }
+
     // --- AÇÕES ---
 
     visit() {
@@ -34,6 +38,10 @@ class HomePage {
 
     accessLoan() {
         this.loanMenu.click();
+    }
+
+    accessProfile(){
+        this.ProfileMenu.click();
     }
 
     logout() {

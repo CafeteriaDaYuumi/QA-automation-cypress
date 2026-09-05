@@ -12,7 +12,7 @@ module.exports = {
 
             {
                 id: 'register',
-                name: 'Criação de usuário',
+                name: 'Register',
                 spec: 'cypress/e2e/register/register.cy.js',
 
                 conditions: [
@@ -48,7 +48,7 @@ module.exports = {
 
             {
                 id: 'accounts',
-                name: 'Contas',
+                name: 'Accounts',
                 spec: 'cypress/e2e/accounts/accounts.cy.js',
 
                 conditions: [
@@ -78,13 +78,13 @@ module.exports = {
             },
 
             // ==========================================
-            // BILLPAYPAGE 
+            // BILLPAY
             // ==========================================
 
             {
-                id: 'BillPayPage',
-                name: 'BillPayPage',
-                spec: 'cypress/e2e/billpaypage/billpaypage.cy.js',
+                id: 'billPay',
+                name: 'BillPay',
+                spec: 'cypress/e2e/billpay/billpay.cy.js',
 
                 conditions: [
                     {
@@ -100,12 +100,29 @@ module.exports = {
 
             {
                 id: 'loan',
-                name: 'loan',
+                name: 'Loan',
                 spec: 'cypress/e2e/loan/loan.cy.js',
 
                 conditions: [
                     {
                         test: 'LOAN001 - deve solicitar um empréstimo com dados válidos',
+                        expected: 'passed'
+                    }
+                ]
+            },
+
+            // ==========================================
+            // PROFILE 
+            // ==========================================
+
+            {
+                id: 'profile',
+                name: 'Profile',
+                spec: 'cypress/e2e/profile/profile.cy.js',
+
+                conditions: [
+                    {
+                        test: 'PROFILE001 - deve atualizar todos os dados do perfil',
                         expected: 'passed'
                     }
                 ]

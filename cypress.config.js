@@ -4,7 +4,8 @@ module.exports = defineConfig({
   allowCypressEnv: false,
 
   // NÃO apagar screenshots e vídeos entre execuções
-  trashAssetsBeforeRuns: false,
+  trashAssetsBeforeRuns: true,
+
 
   e2e: {
     baseUrl: 'https://parabank.parasoft.com/parabank',
@@ -17,3 +18,4 @@ module.exports = defineConfig({
   screenshotOnRunFailure: true,
   video: true
 })
+
