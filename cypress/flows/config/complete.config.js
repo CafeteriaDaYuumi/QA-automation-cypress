@@ -6,10 +6,7 @@ module.exports = {
 
         steps: [
 
-            // ==========================================
             // REGISTER
-            // ==========================================
-
             {
                 id: 'register',
                 name: 'Register',
@@ -23,11 +20,7 @@ module.exports = {
                 ]
             },
 
-
-            // ==========================================
             // LOGIN
-            // ==========================================
-
             {
                 id: 'login',
                 name: 'Login',
@@ -35,17 +28,13 @@ module.exports = {
 
                 conditions: [
                     {
-                        test: 'LOGIN001 - deve realizar login com o usuário criado no cadastro',
+                        test: 'LOGIN001 - deve realizar login com o usuário criado no fluxo',
                         expected: 'passed'
                     }
                 ]
             },
 
-
-            // ==========================================
             // ACCOUNTS
-            // ==========================================
-
             {
                 id: 'accounts',
                 name: 'Accounts',
@@ -59,11 +48,7 @@ module.exports = {
                 ]
             },
 
-
-            // ==========================================
             // TRANSFER
-            // ==========================================
-
             {
                 id: 'transfer',
                 name: 'Transferências',
@@ -77,10 +62,7 @@ module.exports = {
                 ]
             },
 
-            // ==========================================
             // BILLPAY
-            // ==========================================
-
             {
                 id: 'billPay',
                 name: 'BillPay',
@@ -94,10 +76,7 @@ module.exports = {
                 ]
             },
 
-            // ==========================================
-            // LOAN 
-            // ==========================================
-
+            // LOAN
             {
                 id: 'loan',
                 name: 'Loan',
@@ -111,10 +90,7 @@ module.exports = {
                 ]
             },
 
-            // ==========================================
-            // PROFILE 
-            // ==========================================
-
+            // PROFILE
             {
                 id: 'profile',
                 name: 'Profile',
@@ -131,4 +107,3 @@ module.exports = {
         ]
     }
 }
-

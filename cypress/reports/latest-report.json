@@ -1,0 +1,530 @@
+{
+  "reportVersion": "1.0",
+  "flowId": "flow-20-10-2026_18-37-29-619",
+  "flowName": "Fluxo Completo",
+  "status": "passed",
+  "startedAt": "2026-10-20T21:37:29.621Z",
+  "endedAt": "2026-10-20T21:47:17.641Z",
+  "durationMs": 588020,
+  "summary": {
+    "total": 39,
+    "passed": 35,
+    "failed": 4,
+    "pending": 0,
+    "skipped": 0
+  },
+  "steps": [
+    {
+      "id": "register",
+      "name": "Register",
+      "spec": "cypress/e2e/register/register.cy.js",
+      "status": "passed",
+      "startedAt": "2026-10-20T21:37:29.669Z",
+      "endedAt": "2026-10-20T21:38:35.607Z",
+      "durationMs": 65938,
+      "summary": {
+        "total": 5,
+        "passed": 5,
+        "failed": 0,
+        "pending": 0,
+        "skipped": 0
+      },
+      "error": null
+    },
+    {
+      "id": "login",
+      "name": "Login",
+      "spec": "cypress/e2e/login/login.cy.js",
+      "status": "passed",
+      "startedAt": "2026-10-20T21:38:35.616Z",
+      "endedAt": "2026-10-20T21:39:28.028Z",
+      "durationMs": 52412,
+      "summary": {
+        "total": 5,
+        "passed": 5,
+        "failed": 0,
+        "pending": 0,
+        "skipped": 0
+      },
+      "error": null
+    },
+    {
+      "id": "accounts",
+      "name": "Accounts",
+      "spec": "cypress/e2e/accounts/accounts.cy.js",
+      "status": "passed",
+      "startedAt": "2026-10-20T21:39:28.035Z",
+      "endedAt": "2026-10-20T21:40:20.135Z",
+      "durationMs": 52100,
+      "summary": {
+        "total": 4,
+        "passed": 4,
+        "failed": 0,
+        "pending": 0,
+        "skipped": 0
+      },
+      "error": null
+    },
+    {
+      "id": "transfer",
+      "name": "Transferências",
+      "spec": "cypress/e2e/transfer/transfer.cy.js",
+      "status": "passed",
+      "startedAt": "2026-10-20T21:40:20.145Z",
+      "endedAt": "2026-10-20T21:42:36.578Z",
+      "durationMs": 136433,
+      "summary": {
+        "total": 6,
+        "passed": 3,
+        "failed": 3,
+        "pending": 0,
+        "skipped": 0
+      },
+      "error": null
+    },
+    {
+      "id": "billPay",
+      "name": "BillPay",
+      "spec": "cypress/e2e/billpay/billpay.cy.js",
+      "status": "passed",
+      "startedAt": "2026-10-20T21:42:36.585Z",
+      "endedAt": "2026-10-20T21:43:53.811Z",
+      "durationMs": 77226,
+      "summary": {
+        "total": 4,
+        "passed": 4,
+        "failed": 0,
+        "pending": 0,
+        "skipped": 0
+      },
+      "error": null
+    },
+    {
+      "id": "loan",
+      "name": "Loan",
+      "spec": "cypress/e2e/loan/loan.cy.js",
+      "status": "passed",
+      "startedAt": "2026-10-20T21:43:53.816Z",
+      "endedAt": "2026-10-20T21:46:07.404Z",
+      "durationMs": 133588,
+      "summary": {
+        "total": 10,
+        "passed": 9,
+        "failed": 1,
+        "pending": 0,
+        "skipped": 0
+      },
+      "error": null
+    },
+    {
+      "id": "profile",
+      "name": "Profile",
+      "spec": "cypress/e2e/profile/profile.cy.js",
+      "status": "passed",
+      "startedAt": "2026-10-20T21:46:07.429Z",
+      "endedAt": "2026-10-20T21:47:17.613Z",
+      "durationMs": 70184,
+      "summary": {
+        "total": 5,
+        "passed": 5,
+        "failed": 0,
+        "pending": 0,
+        "skipped": 0
+      },
+      "error": null
+    }
+  ],
+  "tests": [
+    {
+      "step": "Register",
+      "stepId": "register",
+      "spec": "cypress\\e2e\\register\\register.cy.js",
+      "title": "Cadastro de Usuário REGISTER001 - deve cadastrar um novo usuário com dados válidos",
+      "state": "passed",
+      "durationMs": 8473,
+      "error": null,
+      "screenshot": null
+    },
+    {
+      "step": "Register",
+      "stepId": "register",
+      "spec": "cypress\\e2e\\register\\register.cy.js",
+      "title": "Cadastro de Usuário REGISTER002 - deve exibir validações ao tentar cadastrar sem preencher os campos obrigatórios",
+      "state": "passed",
+      "durationMs": 2495,
+      "error": null,
+      "screenshot": null
+    },
+    {
+      "step": "Register",
+      "stepId": "register",
+      "spec": "cypress\\e2e\\register\\register.cy.js",
+      "title": "Cadastro de Usuário REGISTER003 - deve impedir cadastro quando as senhas não forem iguais",
+      "state": "passed",
+      "durationMs": 5645,
+      "error": null,
+      "screenshot": null
+    },
+    {
+      "step": "Register",
+      "stepId": "register",
+      "spec": "cypress\\e2e\\register\\register.cy.js",
+      "title": "Cadastro de Usuário REGISTER004 - deve impedir cadastro com username já existente",
+      "state": "passed",
+      "durationMs": 9600,
+      "error": null,
+      "screenshot": null
+    },
+    {
+      "step": "Register",
+      "stepId": "register",
+      "spec": "cypress\\e2e\\register\\register.cy.js",
+      "title": "Cadastro de Usuário REGISTER005 - deve validar mensagem de campo obrigatório",
+      "state": "passed",
+      "durationMs": 5204,
+      "error": null,
+      "screenshot": null
+    },
+    {
+      "step": "Login",
+      "stepId": "login",
+      "spec": "cypress\\e2e\\login\\login.cy.js",
+      "title": "Login e Logout LOGIN001 - deve realizar login com o usuário criado no fluxo",
+      "state": "passed",
+      "durationMs": 11146,
+      "error": null,
+      "screenshot": null
+    },
+    {
+      "step": "Login",
+      "stepId": "login",
+      "spec": "cypress\\e2e\\login\\login.cy.js",
+      "title": "Login e Logout LOGIN002 - deve impedir login com senha inválida",
+      "state": "passed",
+      "durationMs": 2892,
+      "error": null,
+      "screenshot": null
+    },
+    {
+      "step": "Login",
+      "stepId": "login",
+      "spec": "cypress\\e2e\\login\\login.cy.js",
+      "title": "Login e Logout LOGIN003 - deve impedir login com usuário inexistente",
+      "state": "passed",
+      "durationMs": 2792,
+      "error": null,
+      "screenshot": null
+    },
+    {
+      "step": "Login",
+      "stepId": "login",
+      "spec": "cypress\\e2e\\login\\login.cy.js",
+      "title": "Login e Logout LOGIN004 - deve validar os campos obrigatórios no login",
+      "state": "passed",
+      "durationMs": 2155,
+      "error": null,
+      "screenshot": null
+    },
+    {
+      "step": "Login",
+      "stepId": "login",
+      "spec": "cypress\\e2e\\login\\login.cy.js",
+      "title": "Login e Logout LOGIN005 - deve realizar logout após login",
+      "state": "passed",
+      "durationMs": 2927,
+      "error": null,
+      "screenshot": null
+    },
+    {
+      "step": "Accounts",
+      "stepId": "accounts",
+      "spec": "cypress\\e2e\\accounts\\accounts.cy.js",
+      "title": "Contas ACCOUNT001 - deve consultar as contas disponíveis",
+      "state": "passed",
+      "durationMs": 11360,
+      "error": null,
+      "screenshot": null
+    },
+    {
+      "step": "Accounts",
+      "stepId": "accounts",
+      "spec": "cypress\\e2e\\accounts\\accounts.cy.js",
+      "title": "Contas ACCOUNT002 - deve consultar os detalhes de uma conta",
+      "state": "passed",
+      "durationMs": 3186,
+      "error": null,
+      "screenshot": null
+    },
+    {
+      "step": "Accounts",
+      "stepId": "accounts",
+      "spec": "cypress\\e2e\\accounts\\accounts.cy.js",
+      "title": "Contas ACCOUNT003 - deve consultar o histórico de transações",
+      "state": "passed",
+      "durationMs": 2853,
+      "error": null,
+      "screenshot": null
+    },
+    {
+      "step": "Accounts",
+      "stepId": "accounts",
+      "spec": "cypress\\e2e\\accounts\\accounts.cy.js",
+      "title": "Contas ACCOUNT004 - deve consultar os detalhes de uma transação",
+      "state": "passed",
+      "durationMs": 3062,
+      "error": null,
+      "screenshot": null
+    },
+    {
+      "step": "Transferências",
+      "stepId": "transfer",
+      "spec": "cypress\\e2e\\transfer\\transfer.cy.js",
+      "title": "Transferências TRANSFER001 - deve realizar uma transferência entre contas diferentes",
+      "state": "passed",
+      "durationMs": 14493,
+      "error": null,
+      "screenshot": null
+    },
+    {
+      "step": "Transferências",
+      "stepId": "transfer",
+      "spec": "cypress\\e2e\\transfer\\transfer.cy.js",
+      "title": "Transferências TRANSFER002 - deve impedir transferência sem informar valor",
+      "state": "passed",
+      "durationMs": 9374,
+      "error": null,
+      "screenshot": null
+    },
+    {
+      "step": "Transferências",
+      "stepId": "transfer",
+      "spec": "cypress\\e2e\\transfer\\transfer.cy.js",
+      "title": "Transferências TRANSFER003 - deve impedir transferência com valor igual a zero",
+      "state": "failed",
+      "durationMs": 23875,
+      "error": "AssertionError: Timed out retrying after 15000ms: expected '<div#showError>' to be 'visible'\n\nThis element `<div#showError>` is not visible because it has CSS property: `display: none`\n    at Context.eval (webpack://qa-automation-cypress/./cypress/e2e/transfer/transfer.cy.js:168:35)",
+      "screenshot": "D:\\Meus Codigos\\GitHub\\QA-automation-cypress\\cypress\\evidence flow\\flow-20-10-2026_18-37-29-619\\transfer\\photos\\transfer.cy.js\\Transferências -- TRANSFER003 - deve impedir transferência com valor igual a zero (failed).png"
+    },
+    {
+      "step": "Transferências",
+      "stepId": "transfer",
+      "spec": "cypress\\e2e\\transfer\\transfer.cy.js",
+      "title": "Transferências TRANSFER004 - deve impedir transferência com valor negativo",
+      "state": "failed",
+      "durationMs": 24819,
+      "error": "AssertionError: Timed out retrying after 15000ms: expected '<div#showError>' to be 'visible'\n\nThis element `<div#showError>` is not visible because it has CSS property: `display: none`\n    at Context.eval (webpack://qa-automation-cypress/./cypress/e2e/transfer/transfer.cy.js:190:35)",
+      "screenshot": "D:\\Meus Codigos\\GitHub\\QA-automation-cypress\\cypress\\evidence flow\\flow-20-10-2026_18-37-29-619\\transfer\\photos\\transfer.cy.js\\Transferências -- TRANSFER003 - deve impedir transferência com valor igual a zero (failed).png"
+    },
+    {
+      "step": "Transferências",
+      "stepId": "transfer",
+      "spec": "cypress\\e2e\\transfer\\transfer.cy.js",
+      "title": "Transferências TRANSFER005 - deve impedir transferência com valor não numérico",
+      "state": "passed",
+      "durationMs": 11046,
+      "error": null,
+      "screenshot": null
+    },
+    {
+      "step": "Transferências",
+      "stepId": "transfer",
+      "spec": "cypress\\e2e\\transfer\\transfer.cy.js",
+      "title": "Transferências TRANSFER006 - deve impedir transferência para a mesma conta",
+      "state": "failed",
+      "durationMs": 25354,
+      "error": "AssertionError: Timed out retrying after 15000ms: expected '<div#showError>' to be 'visible'\n\nThis element `<div#showError>` is not visible because it has CSS property: `display: none`\n    at Context.eval (webpack://qa-automation-cypress/./cypress/e2e/transfer/transfer.cy.js:234:35)",
+      "screenshot": "D:\\Meus Codigos\\GitHub\\QA-automation-cypress\\cypress\\evidence flow\\flow-20-10-2026_18-37-29-619\\transfer\\photos\\transfer.cy.js\\Transferências -- TRANSFER003 - deve impedir transferência com valor igual a zero (failed).png"
+    },
+    {
+      "step": "BillPay",
+      "stepId": "billPay",
+      "spec": "cypress\\e2e\\billpay\\billpay.cy.js",
+      "title": "Pagamento de Contas BILLPAY001 - deve realizar pagamento de conta com dados válidos",
+      "state": "passed",
+      "durationMs": 16323,
+      "error": null,
+      "screenshot": null
+    },
+    {
+      "step": "BillPay",
+      "stepId": "billPay",
+      "spec": "cypress\\e2e\\billpay\\billpay.cy.js",
+      "title": "Pagamento de Contas BILLPAY002 - deve validar campos obrigatórios",
+      "state": "passed",
+      "durationMs": 7430,
+      "error": null,
+      "screenshot": null
+    },
+    {
+      "step": "BillPay",
+      "stepId": "billPay",
+      "spec": "cypress\\e2e\\billpay\\billpay.cy.js",
+      "title": "Pagamento de Contas BILLPAY003 - deve validar valores inválidos",
+      "state": "passed",
+      "durationMs": 11444,
+      "error": null,
+      "screenshot": null
+    },
+    {
+      "step": "BillPay",
+      "stepId": "billPay",
+      "spec": "cypress\\e2e\\billpay\\billpay.cy.js",
+      "title": "Pagamento de Contas BILLPAY004 - deve validar dados divergentes",
+      "state": "passed",
+      "durationMs": 11665,
+      "error": null,
+      "screenshot": null
+    },
+    {
+      "step": "Loan",
+      "stepId": "loan",
+      "spec": "cypress\\e2e\\loan\\loan.cy.js",
+      "title": "Solicitação de Empréstimo LOAN001 - deve solicitar um empréstimo com dados válidos",
+      "state": "passed",
+      "durationMs": 11283,
+      "error": null,
+      "screenshot": null
+    },
+    {
+      "step": "Loan",
+      "stepId": "loan",
+      "spec": "cypress\\e2e\\loan\\loan.cy.js",
+      "title": "Solicitação de Empréstimo LOAN002 - deve solicitar um empréstimo com Down Payment igual a zero",
+      "state": "passed",
+      "durationMs": 8302,
+      "error": null,
+      "screenshot": null
+    },
+    {
+      "step": "Loan",
+      "stepId": "loan",
+      "spec": "cypress\\e2e\\loan\\loan.cy.js",
+      "title": "Solicitação de Empréstimo LOAN003 - deve negar empréstimo com Down Payment acima do saldo disponível",
+      "state": "passed",
+      "durationMs": 8731,
+      "error": null,
+      "screenshot": null
+    },
+    {
+      "step": "Loan",
+      "stepId": "loan",
+      "spec": "cypress\\e2e\\loan\\loan.cy.js",
+      "title": "Solicitação de Empréstimo LOAN004 - deve negar empréstimo quando não houver fundos suficientes",
+      "state": "passed",
+      "durationMs": 8238,
+      "error": null,
+      "screenshot": null
+    },
+    {
+      "step": "Loan",
+      "stepId": "loan",
+      "spec": "cypress\\e2e\\loan\\loan.cy.js",
+      "title": "Solicitação de Empréstimo LOAN005 - deve apresentar erro ao não informar o Down Payment",
+      "state": "passed",
+      "durationMs": 8415,
+      "error": null,
+      "screenshot": null
+    },
+    {
+      "step": "Loan",
+      "stepId": "loan",
+      "spec": "cypress\\e2e\\loan\\loan.cy.js",
+      "title": "Solicitação de Empréstimo LOAN006 - deve apresentar erro ao não informar o Loan Amount",
+      "state": "passed",
+      "durationMs": 8424,
+      "error": null,
+      "screenshot": null
+    },
+    {
+      "step": "Loan",
+      "stepId": "loan",
+      "spec": "cypress\\e2e\\loan\\loan.cy.js",
+      "title": "Solicitação de Empréstimo LOAN007 - deve apresentar erro ao informar Down Payment inválido",
+      "state": "passed",
+      "durationMs": 8484,
+      "error": null,
+      "screenshot": null
+    },
+    {
+      "step": "Loan",
+      "stepId": "loan",
+      "spec": "cypress\\e2e\\loan\\loan.cy.js",
+      "title": "Solicitação de Empréstimo LOAN008 - deve apresentar erro ao informar Loan Amount inválido",
+      "state": "passed",
+      "durationMs": 8554,
+      "error": null,
+      "screenshot": null
+    },
+    {
+      "step": "Loan",
+      "stepId": "loan",
+      "spec": "cypress\\e2e\\loan\\loan.cy.js",
+      "title": "Solicitação de Empréstimo LOAN009 - deve apresentar erro ao informar Down Payment negativo",
+      "state": "failed",
+      "durationMs": 23499,
+      "error": "AssertionError: Timed out retrying after 15000ms: expected '<p.error>' to be 'visible'\n\nThis element `<p.error>` is not visible because its parent `<div#loanRequestDenied>` has CSS property: `display: none`\n    at Context.eval (webpack://qa-automation-cypress/./cypress/e2e/loan/loan.cy.js:266:13)",
+      "screenshot": "D:\\Meus Codigos\\GitHub\\QA-automation-cypress\\cypress\\evidence flow\\flow-20-10-2026_18-37-29-619\\loan\\photos\\loan.cy.js\\Solicitação de Empréstimo -- LOAN009 - deve apresentar erro ao informar Down Payment negativo (failed).png"
+    },
+    {
+      "step": "Loan",
+      "stepId": "loan",
+      "spec": "cypress\\e2e\\loan\\loan.cy.js",
+      "title": "Solicitação de Empréstimo LOAN010 - deve apresentar erro ao informar Loan Amount negativo",
+      "state": "passed",
+      "durationMs": 9451,
+      "error": null,
+      "screenshot": null
+    },
+    {
+      "step": "Profile",
+      "stepId": "profile",
+      "spec": "cypress\\e2e\\profile\\profile.cy.js",
+      "title": "Atualização de Perfil PROFILE001 - deve atualizar todos os dados do perfil",
+      "state": "passed",
+      "durationMs": 15606,
+      "error": null,
+      "screenshot": null
+    },
+    {
+      "step": "Profile",
+      "stepId": "profile",
+      "spec": "cypress\\e2e\\profile\\profile.cy.js",
+      "title": "Atualização de Perfil PROFILE002 - deve impedir atualização com campos obrigatórios vazios",
+      "state": "passed",
+      "durationMs": 8502,
+      "error": null,
+      "screenshot": null
+    },
+    {
+      "step": "Profile",
+      "stepId": "profile",
+      "spec": "cypress\\e2e\\profile\\profile.cy.js",
+      "title": "Atualização de Perfil PROFILE003 - deve validar o formato do telefone",
+      "state": "passed",
+      "durationMs": 7542,
+      "error": null,
+      "screenshot": null
+    },
+    {
+      "step": "Profile",
+      "stepId": "profile",
+      "spec": "cypress\\e2e\\profile\\profile.cy.js",
+      "title": "Atualização de Perfil PROFILE004 - deve validar o formato do CEP",
+      "state": "passed",
+      "durationMs": 7681,
+      "error": null,
+      "screenshot": null
+    },
+    {
+      "step": "Profile",
+      "stepId": "profile",
+      "spec": "cypress\\e2e\\profile\\profile.cy.js",
+      "title": "Atualização de Perfil PROFILE005 - deve manter os dados atualizados após recarregar a página",
+      "state": "passed",
+      "durationMs": 9950,
+      "error": null,
+      "screenshot": null
+    }
+  ],
+  "message": "Fluxo completo aprovado."
+}
