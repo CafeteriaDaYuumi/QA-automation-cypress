@@ -1,6 +1,6 @@
 class AccountsPage {
 
-  // --- ACCOUNT001 - VISÃO GERAL DA CONTA ---
+  // --- VISÃO GERAL DA CONTA ---
 
   get accountOverview() {
     return cy.get('#showOverview')
@@ -18,7 +18,7 @@ class AccountsPage {
     return cy.get('tfoot > tr > td')
   }
 
-  // --- ACCOUNT002 - ATIVIDADE DA CONTA ---
+  // --- ATIVIDADE DA CONTA ---
 
   get accountDetailsTable() {
     return cy.get('#accountDetails > table')
@@ -36,7 +36,7 @@ class AccountsPage {
     return cy.get('thead > tr > :nth-child(4)')
   }
 
-  // --- ACCOUNT003 - TRANSAÇÕES DA CONTA ---
+  // ---  TRANSAÇÕES DA CONTA ---
 
   get accountActivityTitle() {
     return cy.get('#accountActivity > .title')
@@ -46,7 +46,7 @@ class AccountsPage {
     return cy.get('#transactionTable')
   }
 
-  // --- ACCOUNT004 - DETALHES DA TRANSAÇÃO ---
+  // --- DETALHES DA TRANSAÇÃO ---
 
   get accountDetailsTitle() {
     return cy.get('#accountDetails > .title')

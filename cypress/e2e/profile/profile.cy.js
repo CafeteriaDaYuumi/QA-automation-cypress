@@ -1,140 +1,178 @@
-import LoginPage from '../../pages/LoginPage';
-import HomePage from '../../pages/HomePage';
-import ProfilePage from '../../pages/ProfilePage';
+import LoginPage from '../../pages/LoginPage'
+import HomePage from '../../pages/HomePage'
+import RegisterPage from '../../pages/RegisterPage'
+import ProfilePage from '../../pages/ProfilePage'
 
 describe('Atualização de Perfil', () => {
 
-
-    let user;
-
-    before(() => {
-        cy.clearCookies();
-        cy.clearLocalStorage();
-
-        cy.fixture('createdUser').then((createdUser) => {
-            user = createdUser;
-        });
-    });
+    let user
 
     beforeEach(() => {
-        LoginPage.visit();
 
-        LoginPage.login(user);
+        cy.clearCookies()
+        cy.clearLocalStorage()
 
-        HomePage.accessProfile();
+        cy.fixture('registration').then((data) => {
 
-        ProfilePage.firstName
-            .should('be.visible')
-            .and('not.have.value', '');
+            // Cria um usuário independente para cada teste
+            user = {
+                ...data.validUser,
+                username: `QA-pro_${Date.now()}`
+            }
 
-    });
+            // Cadastro
+            HomePage.visit()
+            HomePage.accessRegister()
 
+            RegisterPage.register(user)
+
+            cy.contains(`Welcome ${user.firstName} ${user.lastName}`)
+                .should('be.visible')
+
+            // Encerra a sessão após o cadastro
+            HomePage.logout()
+
+            // Login com o usuário recém-criado
+            LoginPage.visit()
+            LoginPage.login(user)
+
+            cy.url().should('include', '/overview.htm')
+
+            // Acessa o perfil
+            HomePage.accessProfile()
+
+            ProfilePage.firstName
+                .should('be.visible')
+                .and('not.have.value', '')
+        })
+    })
+
+    // PROFILE001 - Atualização completa
     it('PROFILE001 - deve atualizar todos os dados do perfil', () => {
 
-        ProfilePage.fillFirstName('Roberto');
-        ProfilePage.fillLastName('Carlos');
-        ProfilePage.fillAddress('Rua da Flor, 204');
-        ProfilePage.fillCity('Chile');
-        ProfilePage.fillState('PTB');
-        ProfilePage.fillZipCode('32680-000');
-        ProfilePage.fillPhoneNumber('66564649782');
+        cy.screenshot('profile/PROFILE001-before', {
+            capture: 'viewport',
+            disableTimersAndAnimations: true,
+            timeout: 60000
+        })
 
-        cy.screenshot('profile/PROFILE001-before');
+        ProfilePage.fillFirstName('Roberto')
+        ProfilePage.fillLastName('Carlos')
+        ProfilePage.fillAddress('Rua da Flor, 204')
+        ProfilePage.fillCity('Chile')
+        ProfilePage.fillState('PTB')
+        ProfilePage.fillZipCode('32680-000')
+        ProfilePage.fillPhoneNumber('66564649782')
 
-        ProfilePage.update();
+        ProfilePage.update()
 
         ProfilePage.updateSuccess
-            .should('be.visible');
+            .should('be.visible')
 
         ProfilePage.successMessage
-            .should('be.visible');
+            .should('be.visible')
 
-        cy.screenshot('profile/PROFILE001-result');
-    });
+        cy.screenshot('profile/PROFILE001-result', {
+            capture: 'viewport',
+            disableTimersAndAnimations: true,
+            timeout: 60000
+        })
+    })
 
+    // PROFILE002 - Campos obrigatórios vazios
     it('PROFILE002 - deve impedir atualização com campos obrigatórios vazios', () => {
 
-        ProfilePage.firstName
-            .clear();
+        cy.screenshot('profile/PROFILE002-before', {
+            capture: 'viewport',
+            disableTimersAndAnimations: true,
+            timeout: 60000
+        })
 
-        ProfilePage.lastName
-            .clear();
+        ProfilePage.firstName.clear()
+        ProfilePage.lastName.clear()
+        ProfilePage.address.clear()
+        ProfilePage.city.clear()
+        ProfilePage.state.clear()
+        ProfilePage.zipCode.clear()
+        ProfilePage.phoneNumber.clear()
 
-        ProfilePage.address
-            .clear();
-
-        ProfilePage.city
-            .clear();
-
-        ProfilePage.state
-            .clear();
-
-        ProfilePage.zipCode
-            .clear();
-
-        ProfilePage.phoneNumber
-            .clear();
-
-        cy.screenshot('profile/PROFILE002-before');
-
-        ProfilePage.update();
+        ProfilePage.update()
 
         ProfilePage.firstName
-            .should('have.value', '');
+            .should('have.value', '')
 
         ProfilePage.lastName
-            .should('have.value', '');
+            .should('have.value', '')
 
         ProfilePage.address
-            .should('have.value', '');
+            .should('have.value', '')
 
         ProfilePage.city
-            .should('have.value', '');
+            .should('have.value', '')
 
         ProfilePage.state
-            .should('have.value', '');
+            .should('have.value', '')
 
         ProfilePage.zipCode
-            .should('have.value', '');
+            .should('have.value', '')
 
         ProfilePage.phoneNumber
-            .should('have.value', '');
+            .should('have.value', '')
 
-        cy.screenshot('profile/PROFILE002-result');
-    });
+        cy.screenshot('profile/PROFILE002-result', {
+            capture: 'viewport',
+            disableTimersAndAnimations: true,
+            timeout: 60000
+        })
+    })
 
+    // PROFILE003 - Formato do telefone
     it('PROFILE003 - deve validar o formato do telefone', () => {
 
-        ProfilePage.firstName
-            .should('be.visible')
-            .and('not.have.value', '');
+        cy.screenshot('profile/PROFILE003-before', {
+            capture: 'viewport',
+            disableTimersAndAnimations: true,
+            timeout: 60000
+        })
 
-        ProfilePage.fillPhoneNumber('123');
+        ProfilePage.fillPhoneNumber('123')
 
-        cy.screenshot('profile/PROFILE003-before');
-
-        ProfilePage.update();
+        ProfilePage.update()
 
         ProfilePage.phoneNumber
-            .should('have.value', '123');
+            .should('have.value', '123')
 
-        cy.screenshot('profile/PROFILE003-result');
-    });
+        cy.screenshot('profile/PROFILE003-result', {
+            capture: 'viewport',
+            disableTimersAndAnimations: true,
+            timeout: 60000
+        })
+    })
 
+    // PROFILE004 - Formato do CEP
     it('PROFILE004 - deve validar o formato do CEP', () => {
 
-        ProfilePage.fillZipCode('123');
+        cy.screenshot('profile/PROFILE004-before', {
+            capture: 'viewport',
+            disableTimersAndAnimations: true,
+            timeout: 60000
+        })
 
-        cy.screenshot('profile/PROFILE004-before');
+        ProfilePage.fillZipCode('123')
 
-        ProfilePage.update();
+        ProfilePage.update()
 
         ProfilePage.zipCode
-            .should('have.value', '123');
+            .should('have.value', '123')
 
-        cy.screenshot('profile/PROFILE004-result');
-    });
+        cy.screenshot('profile/PROFILE004-result', {
+            capture: 'viewport',
+            disableTimersAndAnimations: true,
+            timeout: 60000
+        })
+    })
 
+    // PROFILE005 - Persistência após recarregar
     it('PROFILE005 - deve manter os dados atualizados após recarregar a página', () => {
 
         const profile = {
@@ -145,39 +183,46 @@ describe('Atualização de Perfil', () => {
             state: 'MG',
             zipCode: '32600-000',
             phoneNumber: '31999999999'
-        };
+        }
 
-        ProfilePage.updateProfile(profile);
+        cy.screenshot('profile/PROFILE005-before', {
+            capture: 'viewport',
+            disableTimersAndAnimations: true,
+            timeout: 60000
+        })
 
-        cy.screenshot('profile/PROFILE005-before');
+        ProfilePage.updateProfile(profile)
 
         ProfilePage.updateSuccess
-            .should('be.visible');
+            .should('be.visible')
 
-        cy.reload();
+        cy.reload()
 
         ProfilePage.firstName
-            .should('have.value', profile.firstName);
+            .should('have.value', profile.firstName)
 
         ProfilePage.lastName
-            .should('have.value', profile.lastName);
+            .should('have.value', profile.lastName)
 
         ProfilePage.address
-            .should('have.value', profile.address);
+            .should('have.value', profile.address)
 
         ProfilePage.city
-            .should('have.value', profile.city);
+            .should('have.value', profile.city)
 
         ProfilePage.state
-            .should('have.value', profile.state);
+            .should('have.value', profile.state)
 
         ProfilePage.zipCode
-            .should('have.value', profile.zipCode);
+            .should('have.value', profile.zipCode)
 
         ProfilePage.phoneNumber
-            .should('have.value', profile.phoneNumber);
+            .should('have.value', profile.phoneNumber)
 
-        cy.screenshot('profile/PROFILE005-result');
-    });
-
-});
+        cy.screenshot('profile/PROFILE005-result', {
+            capture: 'viewport',
+            disableTimersAndAnimations: true,
+            timeout: 60000
+        })
+    })
+})

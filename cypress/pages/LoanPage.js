@@ -1,6 +1,6 @@
 class LoanPage {
 
-    // --- FORMULÁRIO ---
+    // --- CAMPOS DO FORMULÁRIO ---
 
     get loanAmount() {
         return cy.get('#amount');
@@ -14,11 +14,13 @@ class LoanPage {
         return cy.get('#fromAccountId');
     }
 
+    // --- BOTÕES E AÇÕES DO FORMULÁRIO ---
+
     get applyButton() {
         return cy.get('input[type="button"][value="Apply Now"]');
     }
 
-    // --- RESULTADO ---
+    // --- RESULTADO DA SOLICITAÇÃO ---
 
     get requestLoanResult() {
         return cy.get('#requestLoanResult');
@@ -59,17 +61,18 @@ class LoanPage {
     get loanDeniedMessage() {
         return cy.get('#loanRequestDenied p.error');
     }
-    
-    // --- ERRO --- 
+
+    // --- ERROS DA SOLICITAÇÃO ---
 
     get loanError() {
         return cy.get('#requestLoanError');
     }
+
     get loanErrorMessage() {
         return cy.get('#requestLoanError > .error');
     }
 
-    // --- AÇÕES ---
+    // --- PREENCHIMENTO DO FORMULÁRIO ---
 
     fillLoanForm(amount, downPayment, account) {
         this.loanAmount
@@ -83,9 +86,13 @@ class LoanPage {
         this.fromAccount.select(account);
     }
 
+    // --- ENVIO DA SOLICITAÇÃO ---
+
     applyForLoan() {
         this.applyButton.click();
     }
+
+    // --- FLUXO DE SOLICITAÇÃO DE EMPRÉSTIMO ---
 
     requestLoan(amount, downPayment, account) {
         this.fillLoanForm(amount, downPayment, account);

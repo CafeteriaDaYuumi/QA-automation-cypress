@@ -6,9 +6,14 @@ module.exports = defineConfig({
   // NÃO apagar screenshots e vídeos entre execuções
   trashAssetsBeforeRuns: true,
 
-
   e2e: {
-    baseUrl: 'https://parabank.parasoft.com/parabank',
+    baseUrl: 'http://localhost:8080/parabank',
+    
+    // Site online: dar mais tempo para rede, servidor e elementos
+    defaultCommandTimeout: 15000,
+    pageLoadTimeout: 150000,
+    requestTimeout: 60000,
+    responseTimeout: 60000,
 
     setupNodeEvents(on, config) {
       return config
@@ -16,6 +21,5 @@ module.exports = defineConfig({
   },
 
   screenshotOnRunFailure: true,
-  video: true
+  video: false
 })
-

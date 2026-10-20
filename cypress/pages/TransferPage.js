@@ -6,7 +6,7 @@ class TransferPage {
         return cy.get('a[href="transfer.htm"]')
     }
 
-    // --- FORMULÁRIO ---
+    // --- CAMPOS DO FORMULÁRIO ---
 
     get transferForm() {
         return cy.get('#transferForm')
@@ -24,11 +24,13 @@ class TransferPage {
         return cy.get('#toAccountId')
     }
 
+    // --- BOTÕES E AÇÕES DO FORMULÁRIO ---
+
     get transferButton() {
         return cy.get('#transferForm input[type="submit"]')
     }
 
-    // --- RESULTADOS ---
+    // --- RESULTADOS DA TRANSFERÊNCIA ---
 
     get transferResult() {
         return cy.get('#showResult')
@@ -50,27 +52,35 @@ class TransferPage {
         return cy.get('#showError')
     }
 
-    // --- VALIDAÇÕES ---
+    // --- VALIDAÇÕES DO FORMULÁRIO ---
+
+    get title(){
+        return cy.get('#showForm > .title')
+    }
 
     get emptyAmountError() {
-        return cy.get('#amount\\.errors').eq(0)
+        return cy.get('#amount\\\\.errors').eq(0)
     }
 
     get invalidAmountError() {
-        return cy.get('#amount\\.errors').eq(1)
+        return cy.get('#amount\\\\.errors').eq(1)
     }
 
-    // --- AÇÕES ---
+    // --- ACESSO À TRANSFERÊNCIA ---
 
     accessTransfer() {
         this.transferLink.click()
     }
+
+    // --- PREENCHIMENTO DO VALOR ---
 
     fillAmount(amount) {
         this.transferAmount
             .clear()
             .type(amount)
     }
+
+    // --- SELEÇÃO DAS CONTAS ---
 
     selectFromAccount(account) {
         this.fromAccount.select(account.toString())
@@ -80,11 +90,13 @@ class TransferPage {
         this.toAccount.select(account.toString())
     }
 
+    // --- ENVIO DA TRANSFERÊNCIA ---
+
     submitTransfer() {
         this.transferButton.click()
     }
 
-    // --- CONTAS ---
+    // --- CONTAS DISPONÍVEIS ---
 
     getAvailableAccounts() {
         return this.fromAccount

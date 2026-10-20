@@ -14,35 +14,49 @@ class HomePage {
         return cy.get('#leftPanel > ul > :nth-child(3) > a');
     }
 
+    get billpayMenu() {
+        return cy.get('#leftPanel > ul > :nth-child(4) > a');
+    }
+
     get loanMenu() {
         return cy.get('#leftPanel > ul > :nth-child(7) > a');
     }
 
-    get  ProfileMenu(){
+    get ProfileMenu() {
         return cy.get('#leftPanel > ul > :nth-child(6) > a')
     }
 
-    // --- AÇÕES ---
+    // --- ACESSO À APLICAÇÃO ---
 
     visit() {
         cy.visit('/index.htm');
     }
 
+    // --- ACESSO AO CADASTRO ---
+
     accessRegister() {
         this.registerLink.click();
     }
+
+    // --- ACESSO À TRANSFERÊNCIA ---
 
     accessTransfer() {
         this.transferMenu.click();
     }
 
+    // --- ACESSO A EMPRÉSTIMOS ---
+
     accessLoan() {
         this.loanMenu.click();
     }
 
-    accessProfile(){
+    // --- ACESSO AO PERFIL ---
+
+    accessProfile() {
         this.ProfileMenu.click();
     }
+
+    // --- SESSÃO ---
 
     logout() {
         this.logoutLink.click();

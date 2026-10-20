@@ -48,13 +48,13 @@ class BillPayPage {
     return cy.get('[name="fromAccountId"]')
   }
 
-  // --- BOTÃO ---
+  // --- BOTÕES E AÇÕES DO FORMULÁRIO ---
 
   get payButton() {
     return cy.get('input[type="button"][value="Send Payment"]')
   }
 
-  // --- RESULTADOS ---
+  // --- RESULTADOS DO PAGAMENTO ---
 
   get billPayForm() {
     return cy.get('#billpayForm')
@@ -80,7 +80,7 @@ class BillPayPage {
     return cy.get('#billpayError')
   }
 
-  // --- VALIDAÇÕES ---
+  // --- VALIDAÇÕES DOS CAMPOS ---
 
   get payeeNameError() {
     return cy.get('#validationModel-name')
@@ -106,6 +106,8 @@ class BillPayPage {
     return cy.get('#validationModel-phoneNumber')
   }
 
+  // --- VALIDAÇÕES DA CONTA ---
+
   get accountEmptyError() {
     return cy.get('#validationModel-account-empty')
   }
@@ -126,6 +128,8 @@ class BillPayPage {
     return cy.get('#validationModel-verifyAccount-mismatch')
   }
 
+  // --- VALIDAÇÕES DO VALOR ---
+
   get amountEmptyError() {
     return cy.get('#validationModel-amount-empty')
   }
@@ -134,11 +138,13 @@ class BillPayPage {
     return cy.get('#validationModel-amount-invalid')
   }
 
-  // --- AÇÕES ---
+  // --- NAVEGAÇÃO ---
 
   accessBillPay() {
     this.billPayLink.click()
   }
+
+  // --- PREENCHIMENTO DOS CAMPOS ---
 
   fillPayeeName(payeeName) {
     this.payeeName.clear().type(payeeName)
@@ -180,13 +186,15 @@ class BillPayPage {
     this.fromAccount.select(account.toString())
   }
 
+  // --- ENVIO DO PAGAMENTO ---
+
   submitPayment() {
     this.payButton.click()
   }
 
   // --- FLUXOS DE PAGAMENTO ---
 
-  // BILLPAY001 - Pagamento de conta com dados válidos
+  // Pagamento de conta com dados válidos.
   payBill(payee) {
     this.fillPayeeName(payee.name)
     this.fillAddress(payee.address)

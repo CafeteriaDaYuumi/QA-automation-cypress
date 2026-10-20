@@ -10,7 +10,7 @@ class LoginPage {
         return cy.get('input[name="password"]')
     }
 
-    // --- BOTÃO ---
+    // --- BOTÕES ---
 
     get loginButton() {
         return cy.get('input[type="submit"][value="Log In"]')
@@ -22,7 +22,7 @@ class LoginPage {
         cy.visit('/index.htm')
     }
 
-    // --- PREENCHIMENTO ---
+    // --- PREENCHIMENTO DOS CAMPOS ---
 
     fillUsername(username) {
         this.username
@@ -36,7 +36,7 @@ class LoginPage {
             .type(password)
     }
 
-    // --- AÇÃO ---
+    // --- ENVIO DO FORMULÁRIO ---
 
     submit() {
         this.loginButton.click()
@@ -45,7 +45,6 @@ class LoginPage {
     // --- FLUXO DE LOGIN ---
 
     login(user) {
-
         this.username
             .should('be.visible')
 
@@ -57,4 +56,3 @@ class LoginPage {
 }
 
 export default new LoginPage()
-

@@ -46,13 +46,13 @@ class RegisterPage {
     return cy.get('[name="repeatedPassword"]')
   }
 
-  // --- BOTÃO ---
+  // --- BOTÕES E AÇÕES DO FORMULÁRIO ---
 
   get registerButton() {
     return cy.get('input[type="submit"][value="Register"]')
   }
 
-   // --- AÇÕES ---
+  // --- PREENCHIMENTO DOS DADOS PESSOAIS ---
 
   fillFirstName(firstName) {
     this.firstName.type(firstName)
@@ -82,9 +82,13 @@ class RegisterPage {
     this.phone.type(phone)
   }
 
+  // --- PREENCHIMENTO DOS DADOS DE IDENTIFICAÇÃO ---
+
   fillSsn(ssn) {
     this.ssn.type(ssn)
   }
+
+  // --- PREENCHIMENTO DAS CREDENCIAIS ---
 
   fillUsername(username) {
     this.username.type(username)
@@ -98,7 +102,7 @@ class RegisterPage {
     this.confirmPassword.type(password)
   }
 
-  // --- AÇÕES ---
+  // --- ENVIO DO CADASTRO ---
 
   submit() {
     this.registerButton.click()
@@ -106,7 +110,7 @@ class RegisterPage {
 
   // --- FLUXOS DE CADASTRO ---
 
-  // REGISTER001 - Cadastro de usuário com dados válidos
+  // Cadastro com os dados fornecidos.
   register(user) {
     this.fillFirstName(user.firstName)
     this.fillLastName(user.lastName)
@@ -122,24 +126,8 @@ class RegisterPage {
     this.submit()
   }
 
-  // REGISTER002 - Tentativa de cadastro sem preencher os campos
+  // Envio do formulário sem preencher os campos.
   registerWithoutData() {
-    this.submit()
-  }
-
-  // REGISTER003 - Cadastro com senhas diferentes
-  registerWithPasswordMismatch(user) {
-    this.fillFirstName(user.firstName)
-    this.fillLastName(user.lastName)
-    this.fillAddress(user.address)
-    this.fillCity(user.city)
-    this.fillState(user.state)
-    this.fillZipCode(user.zipCode)
-    this.fillPhone(user.phone)
-    this.fillSsn(user.ssn)
-    this.fillUsername(user.username)
-    this.fillPassword(user.password)
-    this.fillConfirmPassword('SenhaDiferente@123')
     this.submit()
   }
 }

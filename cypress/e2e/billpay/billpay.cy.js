@@ -1,65 +1,60 @@
-import BillPayPage from '../../pages/BillPayPage'
-import LoginPage from '../../pages/LoginPage'
 
-let contaOrigem
+import HomePage from '../../pages/HomePage'
+import RegisterPage from '../../pages/RegisterPage'
+import LoginPage from '../../pages/LoginPage'
+import BillPayPage from '../../pages/BillPayPage'
 
 describe('Pagamento de Contas', () => {
-
-    before(() => {
-
-        // Limpa qualquer sessão anterior
-        cy.clearCookies()
-        cy.clearLocalStorage()
-
-        // Login
-        LoginPage.visit()
-
-        cy.readFile('cypress/fixtures/createdUser.json')
-            .then((user) => {
-
-                LoginPage.login(user)
-
-            })
-
-        cy.url()
-            .should('include', '/overview.htm')
-
-        // Lê as contas criadas na Sprint anterior
-        cy.readFile('cypress/fixtures/createdAccounts.json')
-            .then((data) => {
-
-                contaOrigem = data.accounts.account1
-
-                cy.log(`Conta origem: ${contaOrigem}`)
-            })
-    })
+    let user
+    let contaOrigem
 
     beforeEach(() => {
-
-        // Garante que cada teste comece sem sessão anterior
         cy.clearCookies()
         cy.clearLocalStorage()
 
-        // Login
-        LoginPage.visit()
+        cy.fixture('registration').then((data) => {
+            user = {
+                ...data.validUser,
+                username: `QA-bil_${Date.now()}`
+            }
 
-        cy.readFile('cypress/fixtures/createdUser.json')
-            .then((user) => {
+            // Cria um usuário exclusivo para este teste
+            HomePage.visit()
+            HomePage.accessRegister()
+            RegisterPage.register(user)
 
-                LoginPage.login(user)
+            cy.contains(`Welcome ${user.firstName} ${user.lastName}`)
+                .should('be.visible')
 
-            })
+            HomePage.logout()
 
-        // Confirma que o login foi realizado
-        cy.url()
-            .should('include', '/overview.htm')
+            // Autentica o usuário recém-criado
+            LoginPage.visit()
+            LoginPage.login(user)
 
-        // Acessa pagamento de contas
-        BillPayPage.accessBillPay()
+            cy.url().should('include', '/overview.htm')
+
+            // Obtém uma conta do usuário autenticado
+            cy.get('a[href*="activity.htm"]')
+                .should('have.length.greaterThan', 0)
+                .first()
+                .invoke('text')
+                .then((account) => {
+                    contaOrigem = account.trim()
+
+                    expect(contaOrigem).not.to.be.empty
+                    cy.log(`Conta origem: ${contaOrigem}`)
+
+                    BillPayPage.accessBillPay()
+                })
+        })
     })
 
-
     it('BILLPAY001 - deve realizar pagamento de conta com dados válidos', () => {
+        cy.screenshot('BillPay/BILLPAY001-start', {
+            capture: 'viewport',
+            timeout: 60000
+        })
 
         BillPayPage.fillPayeeName('Empresa Teste')
         BillPayPage.fillAddress('Rua Teste, 100')
@@ -72,55 +67,45 @@ describe('Pagamento de Contas', () => {
         BillPayPage.fillAmount('100')
         BillPayPage.selectFromAccount(contaOrigem)
 
-        cy.screenshot('BillPay/BILLPAY001-before')
-
         BillPayPage.submitPayment()
 
-        BillPayPage.billPayResult
-            .should('be.visible')
+        BillPayPage.billPayResult.should('be.visible')
 
-        cy.screenshot('BillPay/BILLPAY001-result')
+        cy.screenshot('BillPay/BILLPAY001-result', {
+            capture: 'viewport',
+            timeout: 60000
+        })
     })
-
 
     it('BILLPAY002 - deve validar campos obrigatórios', () => {
-
-        cy.screenshot('BillPay/BILLPAY002-before')
+        cy.screenshot('BillPay/BILLPAY002-start', {
+            capture: 'viewport',
+            timeout: 60000
+        })
 
         BillPayPage.submitPayment()
 
-        BillPayPage.payeeNameError
-            .should('be.visible')
+        BillPayPage.payeeNameError.should('be.visible')
+        BillPayPage.addressError.should('be.visible')
+        BillPayPage.cityError.should('be.visible')
+        BillPayPage.stateError.should('be.visible')
+        BillPayPage.zipCodeError.should('be.visible')
+        BillPayPage.phoneError.should('be.visible')
+        BillPayPage.accountEmptyError.should('be.visible')
+        BillPayPage.verifyAccountEmptyError.should('be.visible')
+        BillPayPage.amountEmptyError.should('be.visible')
 
-        BillPayPage.addressError
-            .should('be.visible')
-
-        BillPayPage.cityError
-            .should('be.visible')
-
-        BillPayPage.stateError
-            .should('be.visible')
-
-        BillPayPage.zipCodeError
-            .should('be.visible')
-
-        BillPayPage.phoneError
-            .should('be.visible')
-
-        BillPayPage.accountEmptyError
-            .should('be.visible')
-
-        BillPayPage.verifyAccountEmptyError
-            .should('be.visible')
-
-        BillPayPage.amountEmptyError
-            .should('be.visible')
-
-        cy.screenshot('BillPay/BILLPAY002-result')
+        cy.screenshot('BillPay/BILLPAY002-result', {
+            capture: 'viewport',
+            timeout: 60000
+        })
     })
 
-
     it('BILLPAY003 - deve validar valores inválidos', () => {
+        cy.screenshot('BillPay/BILLPAY003-start', {
+            capture: 'viewport',
+            timeout: 60000
+        })
 
         BillPayPage.fillPayeeName('Empresa Teste')
         BillPayPage.fillAddress('Rua Teste, 100')
@@ -130,23 +115,24 @@ describe('Pagamento de Contas', () => {
         BillPayPage.fillPhone('31999999999')
         BillPayPage.fillAccountNumber(contaOrigem)
         BillPayPage.fillVerifyAccount(contaOrigem)
-
-        // Valor inválido
         BillPayPage.fillAmount('abc')
         BillPayPage.selectFromAccount(contaOrigem)
 
-        cy.screenshot('BillPay/BILLPAY003-before')
-
         BillPayPage.submitPayment()
 
-        BillPayPage.amountInvalidError
-            .should('be.visible')
+        BillPayPage.amountInvalidError.should('be.visible')
 
-        cy.screenshot('BillPay/BILLPAY003-result')
+        cy.screenshot('BillPay/BILLPAY003-result', {
+            capture: 'viewport',
+            timeout: 60000
+        })
     })
 
-
     it('BILLPAY004 - deve validar dados divergentes', () => {
+        cy.screenshot('BillPay/BILLPAY004-start', {
+            capture: 'viewport',
+            timeout: 60000
+        })
 
         BillPayPage.fillPayeeName('Empresa Teste')
         BillPayPage.fillAddress('Rua Teste, 100')
@@ -154,22 +140,18 @@ describe('Pagamento de Contas', () => {
         BillPayPage.fillState('MG')
         BillPayPage.fillZipCode('32600-000')
         BillPayPage.fillPhone('31999999999')
-
-        // Contas divergentes
         BillPayPage.fillAccountNumber(contaOrigem)
         BillPayPage.fillVerifyAccount('999999')
-
         BillPayPage.fillAmount('100')
         BillPayPage.selectFromAccount(contaOrigem)
 
-        cy.screenshot('BillPay/BILLPAY004-before')
-
         BillPayPage.submitPayment()
 
-        BillPayPage.verifyAccountMismatchError
-            .should('be.visible')
+        BillPayPage.verifyAccountMismatchError.should('be.visible')
 
-        cy.screenshot('BillPay/BILLPAY004-result')
+        cy.screenshot('BillPay/BILLPAY004-result', {
+            capture: 'viewport',
+            timeout: 60000
+        })
     })
-
 })
