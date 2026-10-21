@@ -191,7 +191,7 @@ As seguintes etapas permanecem planejadas para as próximas Sprints:
 
 # [0.8.0] - Sprint 7 — Atualização de Perfil
 
-**Status:** Planejado
+**Status:** Concluída
 
 ### Planejado
 
@@ -205,7 +205,7 @@ As seguintes etapas permanecem planejadas para as próximas Sprints:
 
 # [0.9.0] - Sprint 8 — Regressão e Refatoração
 
-**Status:** Planejado
+**Status:** Concluída
 
 ### Planejado
 
@@ -272,8 +272,9 @@ As seguintes etapas permanecem planejadas para as próximas Sprints:
 | `0.3.0` | Sprint 2 | ✅ Concluída | Login e logout                     |
 | `0.4.0` | Sprint 3 | ✅ Concluída | Contas                             |
 | `0.5.0` | Sprint 4 | ✅ Concluída | Transferências                     |
-| `0.6.0` | Sprint 5 | ⏳ Planejada | Pagamento de contas                |
-| `0.7.0` | Sprint 6 | ⏳ Planejada | Solicitação de empréstimo          |
-| `0.8.0` | Sprint 7 | ⏳ Planejada | Atualização de perfil              |
-| `0.9.0` | Sprint 8 | ⏳ Planejada | Regressão e refatoração            |
+| `0.6.0` | Sprint 5 | ✅ Concluída  | Pagamento de contas                |
+| `0.7.0` | Sprint 6 | ✅ Concluída | Solicitação de empréstimo          |
+| `0.8.0` | Sprint 7 | ✅ Concluída  | Atualização de perfil              |
+| `0.9.0` | Sprint 8 | ✅ Concluída | Regressão e refatoração            |
 | `0.10.0` | Sprint 9 | ⏳ Planejada | Release final                      |
+

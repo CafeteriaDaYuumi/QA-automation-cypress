@@ -1,336 +1,148 @@
-# Automação de Testes Web com Cypress
+# QA Automation Cypress
 
-Projeto de automação de testes End-to-End desenvolvido com **Cypress** e **JavaScript**, utilizando a aplicação bancária de demonstração **ParaBank** como ambiente de testes.
+Projeto de automação de testes End-to-End (E2E) desenvolvido com **Cypress e JavaScript**, utilizando o ParaBank como aplicação de demonstração. O projeto busca validar os principais comportamentos funcionais da aplicação e demonstrar práticas de Quality Assurance, organização de testes, reutilização de componentes, execução automatizada e geração de relatórios.
 
-O objetivo do projeto é automatizar fluxos funcionais da aplicação, validar comportamentos esperados e manter uma estrutura de testes organizada e reutilizável.
+O repositório reúne uma suíte de testes organizada por funcionalidade, uma camada de Page Objects e um **Flow Engine** para orquestrar execuções e consolidar resultados e evidências.
 
----
+## Visão geral
 
-## Sobre o projeto
+A automação está organizada em sete módulos funcionais, com **39 casos de teste identificados**.
 
-A automação cobre atualmente os principais fluxos já implementados no projeto:
+| Módulo | Identificadores | Casos |
+|---|---|---:|
+| Cadastro | `REGISTER001`–`REGISTER005` | 5 |
+| Login | `LOGIN001`–`LOGIN005` | 5 |
+| Contas | `ACCOUNT001`–`ACCOUNT004` | 4 |
+| Pagamento de contas | `BILLPAY001`–`BILLPAY004` | 4 |
+| Empréstimos | `LOAN001`–`LOAN010` | 10 |
+| Perfil | `PROFILE001`–`PROFILE005` | 5 |
+| Transferências | `TRANSFER001`–`TRANSFER006` | 6 |
+| **Total** | | **39** |
 
-* Cadastro de usuário
-* Login e logout
-* Consulta de contas
-* Consulta de detalhes da conta
-* Consulta do histórico de transações
-* Consulta de detalhes de uma transação
-* Transferências entre contas
-
-Além dos fluxos funcionais, o projeto utiliza **Page Object Model**, fixtures para massa de teste e screenshots como evidências de execução.
-
-Novas funcionalidades ainda não implementadas são mantidas separadamente na documentação de planejamento.
-
----
+A quantidade de casos identificados representa o escopo catalogado da suíte, não uma garantia de que todos estejam passando em todas as execuções. O resultado efetivo deve ser consultado nos relatórios gerados.
 
 ## Aplicação testada
 
-**ParaBank**
+**ParaBank — Parasoft**
 
-https://parabank.parasoft.com/parabank/index.htm
+Aplicação bancária de demonstração utilizada para praticar automação e validação de comportamentos funcionais.
 
-O ParaBank é uma aplicação bancária de demonstração utilizada para estudos e práticas de testes de software.
+- Aplicação: [ParaBank](https://parabank.parasoft.com/parabank/index.htm)
+- Endereço local configurado: `http://localhost:8080/parabank`
 
-Os dados utilizados pela automação são destinados ao ambiente de testes e podem ser alterados ou removidos pela própria aplicação.
+A configuração atual utiliza o endereço local como `baseUrl`. Portanto, antes de executar os testes, é necessário garantir que a aplicação esteja disponível no ambiente esperado.
 
----
+## Arquitetura do projeto
 
-# Como o projeto funciona
-
-A automação segue uma separação entre **cenário de teste, interação com a aplicação e dados de teste**.
-
-De forma simplificada:
+O projeto separa a definição dos cenários, a interação com a interface, a preparação dos dados e a coordenação das execuções.
 
 ```text
-Teste E2E
-   │
-   ├── utiliza dados das fixtures
-   │
-   ├── executa ações através dos Page Objects
-   │
-   └── valida o resultado através de Assertions
+Cenários E2E
+    │
+    ├── Preparação e validação dos cenários
+    │
+    ├── Page Objects
+    │       └── Interação com a interface
+    │
+    ├── Dados de teste
+    │       └── Fixtures e dados dinâmicos
+    │
+    └── Assertions
+            └── Validação dos resultados
+
+Flow Engine
+    └── Orquestração das etapas
+            ├── Execução dos testes
+            ├── Coleta de resultados
+            └── Relatórios e evidências
 ```
 
-### Testes E2E
+### Tecnologias e práticas
 
-Os arquivos dentro de `cypress/e2e/` representam os cenários automatizados.
+- **Cypress:** execução de testes End-to-End.
+- **JavaScript:** implementação dos testes e da lógica de execução.
+- **Node.js e npm:** ambiente de execução e gerenciamento de dependências.
+- **Page Object Model (POM):** centralização de interações e seletores da interface.
+- **Flow Engine:** coordenação de execuções compostas e organização dos resultados.
+- **HTML e JSON:** formatos de relatórios de execução.
+- **Git e GitHub:** versionamento e distribuição do projeto.
 
-Eles são responsáveis por:
-
-* preparar o cenário;
-* utilizar a massa necessária;
-* chamar os Page Objects;
-* executar as ações;
-* validar os resultados;
-* registrar evidências quando necessário.
-
-### Page Objects
-
-Os Page Objects ficam em:
-
-```text
-cypress/pages/
-```
-
-Eles centralizam a interação com as páginas da aplicação.
-
-Atualmente existem Page Objects para:
-
-* página inicial;
-* cadastro;
-* login;
-* contas;
-* transferências.
-
-Isso evita espalhar seletores e ações de interface diretamente pelos testes.
-
-### fixtures
-
-Os dados de teste ficam em:
-
-```text
-cypress/fixtures/
-```
-
-Além dos dados estáticos, alguns fluxos geram arquivos durante a execução.
-
-Por exemplo:
-
-```text
-registration.json
-        │
-        ▼
-Cadastro
-        │
-        ▼
-createdUser.json
-        │
-        ├── Login
-        ├── Contas
-        └── Transferências
-```
-
-O username utilizado no cadastro é gerado dinamicamente para reduzir conflitos com usuários já existentes.
-
----
-
-# Estrutura do projeto
+## Estrutura de diretórios
 
 ```text
 QA-automation-cypress/
-│
-├── .github/
-│   └── workflows/
-│
 ├── cypress/
 │   ├── e2e/
-│   │   ├── register/
-│   │   ├── login/
 │   │   ├── accounts/
-│   │   ├── transfer/
-│   │   └── billpaypage/
+│   │   ├── billpay/
+│   │   ├── loan/
+│   │   ├── login/
+│   │   ├── profile/
+│   │   ├── register/
+│   │   └── transfer/
 │   │
 │   ├── fixtures/
+│   │   └── registration.json
 │   │
 │   ├── pages/
+│   ├── flows/
+│   │   ├── engine/
+│   │   └── complete/
 │   │
-│   ├── screenshots/
-│   │
-│   ├── videos/
-│   │
+│   ├── reports/
 │   └── support/
-│       ├── commands.js
-│       └── e2e.js
 │
-├── documents/
-│   ├── implemented/
-│   ├── planning/
-│   ├── architecture/
-│   ├── BACKLOG.md
-│   └── CHANGELOG.md
-│
+├── docs/
 ├── cypress.config.js
 ├── package.json
 ├── package-lock.json
 └── README.md
 ```
 
-A estrutura pode evoluir conforme novas funcionalidades e necessidades técnicas forem implementadas.
+A estrutura acima apresenta os diretórios centrais do projeto; arquivos auxiliares e subdiretórios podem existir dentro deles. Os relatórios, as evidências e outros artefatos de execução são gerados conforme a configuração e o fluxo executado.
 
----
+## Como funciona a suíte de testes
 
-# Onde encontrar cada informação
+### Testes E2E
 
-A pasta `documents/` foi dividida para evitar que a mesma informação precise ser mantida em vários documentos.
+Os arquivos em `cypress/e2e/` agrupam os cenários por funcionalidade. Cada módulo possui seus próprios casos, com identificadores que permitem relacionar o teste ao catálogo e aos resultados de execução.
 
-| Local            | O que contém                                       |
-| ---------------- | -------------------------------------------------- |
-| `implemented/` | Funcionalidades e testes que já existem no projeto |
-| `planning/`    | Funcionalidades que ainda serão implementadas      |
-| `architecture/`   | Padrões e decisões técnicas da automação           |
-| `BACKLOG.md`     | Trabalho que ainda precisa ser realizado           |
-| `CHANGELOG.md`   | Histórico das mudanças do projeto                  |
+Os testes são responsáveis por preparar o cenário necessário, executar as ações, verificar os resultados esperados e registrar evidências quando aplicável.
 
-### Por onde começar
+### Page Object Model
 
-Se você quer entender **o que já foi automatizado**:
+Os componentes de página ficam em `cypress/pages/`. Essa camada concentra as interações com os elementos da aplicação, evitando que seletores e operações de interface precisem ser repetidos diretamente em todos os cenários.
 
-```text
-documents/implemented/
-```
+A separação facilita a manutenção dos testes quando a interface muda e ajuda a manter os cenários focados no comportamento que está sendo validado.
 
-Se quer saber **o que ainda falta implementar**:
+### Dados de teste
 
-```text
-documents/planning/
-documents/BACKLOG.md
-```
+Os dados estáticos reutilizáveis ficam em `cypress/fixtures/`, com `registration.json` como fixture de referência para o cadastro. Outros cenários podem preparar usuários, contas e demais dados dinamicamente durante a execução.
 
-Se quer entender **como a automação foi estruturada**:
+A estratégia atual não depende de `createdAccounts.json` para compartilhar contas entre os testes. Sempre que possível, cada cenário deve preparar os próprios dados e evitar dependência da ordem de execução ou de resultados deixados por testes anteriores.
 
-```text
-documents/architecture/
-```
+### Flow Engine
 
-Se quer saber **o que mudou ao longo do projeto**:
+O Flow Engine está organizado em `cypress/flows/engine/` e `cypress/flows/complete/`.
 
-```text
-documents/CHANGELOG.md
-```
+Ele coordena a execução de etapas, organiza os resultados e integra a geração de relatórios e evidências. O fluxo completo é definido por `complete.flow.js`, com suas configurações em `complete.config.js`.
 
----
+É importante distinguir as duas formas de execução:
 
-# Funcionalidades implementadas
+- **Execução direta do Cypress:** executa um ou mais arquivos de teste sem depender da orquestração do fluxo completo.
+- **Execução pelo Flow Engine:** utiliza a camada de orquestração para coordenar as etapas e consolidar os artefatos da execução.
 
-## Cadastro
+## Pré-requisitos
 
-Local dos testes:
+Antes de começar, instale:
 
-```text
-cypress/e2e/register/
-```
+- Node.js em uma versão compatível com as dependências do projeto;
+- npm;
+- Git;
+- uma instância do ParaBank acessível pelo endereço configurado;
+- um navegador compatível, caso utilize a interface do Cypress ou especifique um navegador na execução.
 
-Documentação:
-
-```text
-documents/implemented/register.md
-```
-
-O fluxo possui cenários de cadastro válido e validações de dados obrigatórios e inválidos.
-
----
-
-## Login e Logout
-
-Local dos testes:
-
-```text
-cypress/e2e/login/
-```
-
-Documentação:
-
-```text
-documents/implemented/Login.md
-```
-
-O fluxo utiliza o usuário criado pelo cadastro e também contempla cenários de credenciais inválidas e logout.
-
----
-
-## Contas
-
-Local dos testes:
-
-```text
-cypress/e2e/accounts/
-```
-
-Documentação:
-
-```text
-documents/implemented/accounts.md
-```
-
-São validados:
-
-* consulta das contas;
-* detalhes da conta;
-* histórico de transações;
-* detalhes de uma transação.
-
----
-
-## Transferências
-
-Local dos testes:
-
-```text
-cypress/e2e/transfer/
-```
-
-Documentação:
-
-```text
-documents/implemented/transfer.md
-```
-
-São contemplados cenários de:
-
-* transferência válida;
-* ausência de valor;
-* valor zero;
-* valor negativo;
-* valor não numérico;
-* transferência para a mesma conta.
-
----
-
-# Arquitetura
-
-O projeto utiliza **Page Object Model (POM)**.
-
-A ideia principal é separar:
-
-```text
-Cenário de teste
-       │
-       ▼
-Page Object
-       │
-       ▼
-Interface da aplicação
-```
-
-Os testes descrevem **o que está sendo validado**, enquanto os Page Objects concentram **como a aplicação é utilizada**.
-
-Os detalhes da arquitetura estão em:
-
-```text
-documents/architecture/
-```
-
-Principais documentos:
-
-* `structure.md`
-* `Page_Object_Model.md`
-* `fixtures.md`
-* `evidence.md`
-* `cypress_Configuration.md`
-
----
-
-# Pré-requisitos
-
-Para executar o projeto localmente, é necessário ter:
-
-* Node.js
-* npm
-* Git
-* um navegador compatível com Cypress
-
-Verifique as versões instaladas:
+Verifique as ferramentas instaladas:
 
 ```bash
 node --version
@@ -338,9 +150,7 @@ npm --version
 git --version
 ```
 
----
-
-# Instalação
+## Instalação
 
 Clone o repositório:
 
@@ -348,222 +158,140 @@ Clone o repositório:
 git clone https://github.com/CafeteriaDaYuumi/QA-automation-cypress.git
 ```
 
-Entre na pasta:
+Entre na pasta do projeto:
 
 ```bash
 cd QA-automation-cypress
 ```
 
-Instale as dependências:
+Instale as dependências utilizando o arquivo de lock:
 
 ```bash
-npm install
+npm ci
 ```
 
----
+Antes de executar os testes, confirme que a aplicação ParaBank está disponível em:
 
-# Executando os testes
+```text
+http://localhost:8080/parabank
+```
 
-## Interface do Cypress
+A configuração principal do Cypress está em `cypress.config.js`.
 
-Para abrir o Cypress:
+## Executando os testes
+
+### Abrir a interface do Cypress
 
 ```bash
 npx cypress open
 ```
 
-Depois:
+Na interface, selecione **E2E Testing**, escolha um navegador e abra o arquivo de teste desejado.
 
-1. selecione **E2E Testing**;
-2. escolha o navegador;
-3. selecione o teste que deseja executar.
-
----
-
-## Execução em modo headless
-
-Para executar a suíte sem abrir a interface:
+### Executar a suíte diretamente
 
 ```bash
 npx cypress run
 ```
 
----
+Essa opção executa os testes em modo headless, sem abrir a interface gráfica do Cypress.
 
-## Executando no Chrome
+### Executar um módulo específico
 
-```bash
-npx cypress run --browser chrome
-```
-
----
-
-## Executando um único teste
-
-Exemplo:
+Por exemplo, para executar os testes de login:
 
 ```bash
 npx cypress run --spec "cypress/e2e/login/login.cy.js"
 ```
 
-Substitua o caminho pelo spec que deseja executar.
+Para executar outro módulo, substitua o caminho pelo arquivo correspondente em `cypress/e2e/`.
+
+### Executar o fluxo completo
+
+```bash
+npm run flow
+```
+
+Esse comando inicia o Flow Engine por meio de `cypress/flows/complete/complete.flow.js`. Diferentemente da execução direta de um spec, o fluxo completo coordena as etapas definidas em sua configuração e organiza os resultados e artefatos correspondentes.
+
+Consulte `docs/execution.md` para obter os comandos de execução e as diferenças entre os modos disponíveis.
+
+## Relatórios e evidências
+
+O projeto possui uma camada de reporting para organizar os resultados e facilitar a análise das execuções.
+
+Os relatórios mais recentes são disponibilizados em:
+
+```text
+cypress/reports/
+├── latest-report.html
+└── latest-report.json
+```
+
+O histórico de execuções do Flow Engine é organizado por identificador de fluxo:
+
+```text
+cypress/reports/history/<flow-id>/
+├── report.html
+└── report.json
+```
+
+As evidências do fluxo são organizadas por execução e etapa, no diretório:
+
+```text
+cypress/evidence flow/<flow-id>/
+```
+
+Conforme a execução e a configuração, esse diretório pode conter screenshots e vídeos associados às etapas.
+
+O relatório HTML facilita a leitura dos resultados; o JSON permite consultar os dados de forma estruturada. Os artefatos devem ser analisados em conjunto quando for necessário investigar falhas, comparar execuções ou identificar comportamentos instáveis.
+
+Os caminhos e formatos descritos correspondem à organização esperada do sistema de relatórios. A presença de cada artefato depende de a execução ter sido concluída e de a respectiva funcionalidade ter sido acionada.
+
+## Documentação
+
+A documentação complementar fica em `docs/`. Cada arquivo possui uma responsabilidade específica, evitando transformar o README em uma cópia da documentação técnica.
+
+| Documento | Conteúdo |
+|---|---|
+| `overview.md` | Visão geral, objetivos e escopo do projeto |
+| `project-structure.md` | Organização dos diretórios e componentes |
+| `page-object-model.md` | Padrões e responsabilidades dos Page Objects |
+| `flow-engine.md` | Arquitetura e funcionamento do Flow Engine |
+| `reporting.md` | Relatórios, histórico e evidências |
+| `test-strategy.md` | Abordagem e critérios da estratégia de testes |
+| `test-catalog.md` | Catálogo dos casos e identificadores |
+| `test-data.md` | Fixtures, dados dinâmicos e isolamento |
+| `installation.md` | Preparação do ambiente |
+| `execution.md` | Comandos e modos de execução |
+| `troubleshooting.md` | Diagnóstico de problemas comuns |
+| `contributing.md` | Orientações para contribuir com o projeto |
+| `Backlog.md` | Itens planejados e trabalho pendente |
+
+Consulte os documentos conforme sua necessidade: comece por `overview.md` para entender o projeto, use `execution.md` para executar os testes e consulte os documentos de arquitetura para compreender a implementação.
+
+## Estado e evolução do projeto
+
+O escopo automatizado está organizado por módulos funcionais e seus respectivos casos de teste. A manutenção da suíte envolve tanto a evolução dos cenários quanto a confiabilidade das execuções, a qualidade dos dados, a organização das evidências e a precisão da documentação.
+
+O backlog registra tarefas propostas e trabalho pendente. A presença de uma tarefa no backlog não significa que ela tenha sido implementada, assim como a existência de um caso de teste não garante que ele esteja passando atualmente.
+
+Para acompanhar o trabalho planejado, consulte `docs/Backlog.md`. Para compreender os critérios e a organização dos casos existentes, consulte `docs/test-catalog.md` e `docs/test-strategy.md`.
+
+## Contribuição
+
+Ao adicionar ou modificar testes, mantenha a organização por funcionalidade, utilize os identificadores de caso de teste de forma consistente e prefira reutilizar ou ampliar os Page Objects existentes quando isso fizer sentido.
+
+Os cenários devem ser tão independentes quanto possível, preparar os próprios dados quando necessário e validar resultados observáveis da aplicação. Alterações no Flow Engine ou no sistema de relatórios também devem preservar a rastreabilidade entre a execução, os casos executados e as evidências geradas.
+
+Antes de propor uma alteração, execute os testes afetados e verifique se a documentação correspondente continua refletindo o comportamento real do código.
+
+Consulte `docs/contributing.md` para as orientações de contribuição.
+
+## Repositório
+
+[GitHub — CafeteriaDaYuumi/QA-automation-cypress](https://github.com/CafeteriaDaYuumi/QA-automation-cypress)
 
 ---
 
-# Evidências
-
-Durante a execução, os testes podem gerar screenshots e vídeos.
-
-Os arquivos ficam nas pastas:
-
-```text
-cypress/screenshots/
-cypress/videos/
-```
-
-Os testes também utilizam `cy.screenshot()` para registrar estados importantes dos fluxos.
-
-Além disso, o Cypress está configurado para gerar screenshot em caso de falha.
-
-As regras e detalhes sobre evidências estão documentados em:
-
-```text
-documents/architecture/evidence.md
-```
-
----
-
-# Massa de teste
-
-Os dados reutilizáveis ficam em:
-
-```text
-cypress/fixtures/
-```
-
-Entre os arquivos utilizados atualmente estão:
-
-```text
-registration.json
-login.json
-createdUser.json
-createdUser2.json
-```
-
-Os arquivos `createdUser.json` e `createdUser2.json` são utilizados para armazenar usuários criados durante os fluxos de teste.
-
-A estratégia de fixtures está detalhada em:
-
-```text
-documents/architecture/fixtures.md
-```
-
----
-
-# Configuração
-
-A configuração principal do Cypress está em:
-
-```text
-cypress.config.js
-```
-
-A aplicação ParaBank é definida como `baseUrl`, permitindo utilizar caminhos relativos nos testes.
-
-Exemplo:
-
-```javascript
-cy.visit('/index.htm')
-```
-
-As demais configurações técnicas estão documentadas em:
-
-```text
-documents/architecture/Configuracao_Cypress.md
-```
-
----
-
-# Tecnologias
-
-* **Cypress** — automação End-to-End
-* **JavaScript** — linguagem utilizada nos testes
-* **Node.js / npm** — execução e gerenciamento de dependências
-* **Git / GitHub** — versionamento
-* **Markdown** — documentação
-
----
-
-# Estado atual do projeto
-
-Atualmente, a automação possui os seguintes fluxos implementados:
-
-```text
-Cadastro
-   │
-   ▼
-Login / Logout
-   │
-   ▼
-Contas
-   │
-   ├── Detalhes da conta
-   ├── Histórico
-   └── Detalhes da transação
-   │
-   ▼
-Transferências
-```
-
-Funcionalidades ainda não implementadas permanecem fora de `implemented/` e são controladas através de:
-
-```text
-documents/planning/
-documents/BACKLOG.md
-```
-
----
-
-# Próximos passos
-
-O que será desenvolvido posteriormente não é definido neste README.
-
-Para consultar o trabalho pendente, consulte:
-
-```text
-documents/BACKLOG.md
-```
-
-Para consultar a descrição das funcionalidades futuras:
-
-```text
-documents/planning/
-```
-
-Isso mantém o README como **ponto de entrada do projeto**, sem transformá-lo em uma segunda versão do backlog ou da documentação de testes.
-
----
-
-# Histórico
-
-As principais alterações do projeto são registradas em:
-
-```text
-documents/CHANGELOG.md
-```
-
-O CHANGELOG mantém o histórico das versões e das funcionalidades implementadas.
-
----
-
-# Repositório
-
-https://github.com/CafeteriaDaYuumi/QA-automation-cypress
-
----
-
-## Finalidade
-
-Este projeto foi desenvolvido para estudo e demonstração de práticas de **Quality Assurance**, automação de testes End-to-End, organização de código, Page Object Model, massa de teste e documentação de testes.
-
-A aplicação ParaBank é utilizada exclusivamente como ambiente de demonstração para a automação.
+Este projeto tem finalidade educacional e de demonstração de práticas de Quality Assurance, automação End-to-End, organização de código, preparação de dados, orquestração de execuções e geração de relatórios. O ParaBank é utilizado como ambiente de testes de demonstração.
