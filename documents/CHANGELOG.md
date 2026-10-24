@@ -222,7 +222,7 @@ As seguintes etapas permanecem planejadas para as próximas Sprints:
 
 # [1.0.0] - Sprint 9 — Release Final
 
-**Status:** Planejado
+**Status:** Concluída
 
 ### Integração Contínua
 
@@ -276,5 +276,5 @@ As seguintes etapas permanecem planejadas para as próximas Sprints:
 | `0.7.0` | Sprint 6 | ✅ Concluída | Solicitação de empréstimo          |
 | `0.8.0` | Sprint 7 | ✅ Concluída  | Atualização de perfil              |
 | `0.9.0` | Sprint 8 | ✅ Concluída | Regressão e refatoração            |
-| `0.10.0` | Sprint 9 | ⏳ Planejada | Release final                      |
+| `0.10.0` | Sprint 9 | ✅ Concluída | Release final                      |
 

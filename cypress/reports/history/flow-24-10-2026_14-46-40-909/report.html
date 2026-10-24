@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Relatório Cypress</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6f9;
+            color: #202938;
+            margin: 0;
+            padding: 24px;
+        }
+
+        main {
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        section {
+            background: white;
+            padding: 20px;
+            margin: 18px 0;
+            border: 1px solid #dfe3e8;
+            border-radius: 10px;
+        }
+
+        .metrics {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 12px;
+        }
+
+        .metric {
+            background: white;
+            padding: 16px;
+            border: 1px solid #dfe3e8;
+            border-radius: 10px;
+        }
+
+        .metric strong {
+            display: block;
+            font-size: 26px;
+            margin-top: 8px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            text-align: left;
+            padding: 10px;
+            border-bottom: 1px solid #e5e7eb;
+            vertical-align: top;
+        }
+
+        th {
+            background: #f8fafc;
+        }
+
+        .table-wrap {
+            overflow-x: auto;
+        }
+
+        code, .error {
+            overflow-wrap: anywhere;
+            white-space: pre-wrap;
+        }
+
+        .passed {
+            color: #087443;
+        }
+
+        .failed {
+            color: #b42318;
+        }
+
+        .pending, .skipped {
+            color: #b54708;
+        }
+
+        .muted {
+            color: #667085;
+        }
+
+        @media (max-width: 700px) {
+            body {
+                padding: 12px;
+            }
+
+            .metrics {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+<main>
+    <h1>Relatório de execução Cypress</h1>
+    <p class="muted">Fluxo: Fluxo Completo</p>
+
+    <section>
+        <h2>Resumo dos testes</h2>
+        <div class="metrics">
+            <div class="metric">Total
+                <strong>39</strong>
+            </div>
+            <div class="metric">Aprovados
+                <strong class="passed">35</strong>
+            </div>
+            <div class="metric">Reprovados
+                <strong class="failed">4</strong>
+            </div>
+            <div class="metric">Pendentes
+                <strong class="pending">0</strong>
+            </div>
+            <div class="metric">Ignorados
+                <strong class="skipped">0</strong>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Dados da execução</h2>
+        <p><strong>ID:</strong> flow-24-10-2026_14-46-40-909</p>
+        <p><strong>Status:</strong> passed</p>
+        <p><strong>Início:</strong> 24/10/2026, 14:46:40</p>
+        <p><strong>Término:</strong> 24/10/2026, 14:59:45</p>
+        <p><strong>Duração:</strong> 13m 04s</p>
+        <p><strong>Mensagem:</strong> Fluxo completo aprovado.</p>
+    </section>
+
+    <section>
+        <h2>Resultados por teste</h2>
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Status</th>
+                        <th>Teste</th>
+                        <th>Spec</th>
+                        <th>Duração</th>
+                        <th>Erro</th>
+                        <th>Screenshot</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+            <tr>
+                <td class="passed">
+                    passed
+                </td>
+                <td>Cadastro de Usuário REGISTER001 - deve cadastrar um novo usuário com dados válidos</td>
+                <td><code>cypress\e2e\register\register.cy.js</code></td>
+                <td>0m 10s</td>
+                <td class="error">—</td>
+                <td>—</td>
+            </tr>
+        
+            <tr>
+                <td class="passed">
+                    passed
+                </td>
+                <td>Cadastro de Usuário REGISTER002 - deve exibir validações ao tentar cadastrar sem preencher os campos obrigatórios</td>
+                <td><code>cypress\e2e\register\register.cy.js</code></td>
+                <td>0m 02s</td>
+                <td class="error">—</td>
+                <td>—</td>
+            </tr>
+        
+            <tr>
+                <td class="passed">
+                    passed
+                </td>
+                <td>Cadastro de Usuário REGISTER003 - deve impedir cadastro quando as senhas não forem iguais</td>
+                <td><code>cypress\e2e\register\register.cy.js</code></td>
+                <td>0m 06s</td>
+                <td class="error">—</td>
+                <td>—</td>
+            </tr>
+        
+            <tr>
+                <td class="passed">
+                    passed
+                </td>
+                <td>Cadastro de Usuário REGISTER004 - deve impedir cadastro com username já existente</td>
+                <td><code>cypress\e2e\register\register.cy.js</code></td>
+                <td>0m 10s</td>
+                <td class="error">—</td>
+                <td>—</td>
+            </tr>
+        
+            <tr>
+                <td class="passed">
+                    passed
+                </td>
+                <td>Cadastro de Usuário REGISTER005 - deve validar mensagem de campo obrigatório</td>
+                <td><code>cypress\e2e\register\register.cy.js</code></td>
+                <td>0m 05s</td>
+                <td class="error">—</td>
+                <td>—</td>
+            </tr>
+        
+            <tr>
+                <td class="passed">
+                    passed
+                </td>
+                <td>Login e Logout LOGIN001 - deve realizar login com o usuário criado no fluxo</td>
+                <td><code>cypress\e2e\login\login.cy.js</code></td>
+                <td>0m 11s</td>
+                <td class="error">—</td>
+                <td>—</td>
+            </tr>
+        
+            <tr>
+                <td class="passed">
+                    passed
+                </td>
+                <td>Login e Logout LOGIN002 - deve impedir login com senha inválida</td>
+                <td><code>cypress\e2e\login\login.cy.js</code></td>
+                <td>0m 03s</td>
+                <td class="error">—</td>
+                <td>—</td>
+            </tr>
+        
+            <tr>
+                <td class="passed">
+                    passed
+                </td>
+                <td>Login e Logout LOGIN003 - deve impedir login com usuário inexistente</td>
+                <td><code>cypress\e2e\login\login.cy.js</code></td>
+                <td>0m 02s</td>
+                <td class="error">—</td>
+                <td>—</td>
+            </tr>
+        
+            <tr>
+                <td class="passed">
+                    passed
+                </td>
+                <td>Login e Logout LOGIN004 - deve validar os campos obrigatórios no login</td>
+                <td><code>cypress\e2e\login\login.cy.js</code></td>
+                <td>0m 01s</td>
+                <td class="error">—</td>
+                <td>—</td>
+            </tr>
+        
+            <tr>
+                <td class="passed">
+                    passed
+                </td>
+                <td>Login e Logout LOGIN005 - deve realizar logout após login</td>
+                <td><code>cypress\e2e\login\login.cy.js</code></td>
+                <td>0m 03s</td>
+                <td class="error">—</td>
+                <td>—</td>
+            </tr>
+        
+            <tr>
+                <td class="passed">
+                    passed
+                </td>
+                <td>Contas ACCOUNT001 - deve consultar as contas disponíveis</td>
+                <td><code>cypress\e2e\accounts\accounts.cy.js</code></td>
+                <td>0m 10s</td>
+                <td class="error">—</td>
+                <td>—</td>
+            </tr>
+        
+            <tr>
+                <td class="passed">
+                    passed
+                </td>
+                <td>Contas ACCOUNT002 - deve consultar os detalhes de uma conta</td>
+                <td><code>cypress\e2e\accounts\accounts.cy.js</code></td>
+                <td>0m 03s</td>
+                <td class="error">—</td>
+                <td>—</td>
+            </tr>
+        
+            <tr>
+                <td class="passed">
+                    passed
+                </td>
+                <td>Contas ACCOUNT003 - deve consultar o histórico de transações</td>
+                <td><code>cypress\e2e\accounts\accounts.cy.js</code></td>
+                <td>0m 02s</td>
+                <td class="error">—</td>
+                <td>—</td>
+            </tr>
+        
+            <tr>
+                <td class="passed">
+                    passed
+                </td>
+                <td>Contas ACCOUNT004 - deve consultar os detalhes de uma transação</td>
+                <td><code>cypress\e2e\accounts\accounts.cy.js</code></td>
+                <td>0m 03s</td>
+                <td class="error">—</td>
+                <td>—</td>
+            </tr>
+        
+            <tr>
+                <td class="passed">
+                    passed
+                </td>
+                <td>Transferências TRANSFER001 - deve realizar uma transferência entre contas diferentes</td>
+                <td><code>cypress\e2e\transfer\transfer.cy.js</code></td>
+                <td>0m 15s</td>
+                <td class="error">—</td>
+                <td>—</td>
+            </tr>
+        
+            <tr>
+                <td class="passed">
+                    passed
+                </td>
+                <td>Transferências TRANSFER002 - deve impedir transferência sem informar valor</td>
+                <td><code>cypress\e2e\transfer\transfer.cy.js</code></td>
+                <td>0m 09s</td>
+                <td class="error">—</td>
+                <td>—</td>
+            </tr>
+        
+            <tr>
+                <td class="failed">
+                    failed
+                </td>
+                <td>Transferências TRANSFER003 - deve impedir transferência com valor igual a zero</td>
+                <td><code>cypress\e2e\transfer\transfer.cy.js</code></td>
+                <td>0m 25s</td>
+                <td class="error">AssertionError: Timed out retrying after 15000ms: expected &#39;&lt;div#showError&gt;&#39; to be &#39;visible&#39;
+
+This element `&lt;div#showError&gt;` is not visible because it has CSS property: `display: none`
+    at Context.eval (webpack://qa-automation-cypress/./cypress/e2e/transfer/transfer.cy.js:168:35)</td>
+                <td><code>D:\Meus Codigos\GitHub\QA-automation-cypress\cypress\evidence flow\flow-24-10-2026_14-46-40-909\transfer\photos\transfer.cy.js\Transferências -- TRANSFER003 - deve impedir transferência com valor igual a zero (failed).png</code></td>
+            </tr>
+        
+            <tr>
+                <td class="failed">
+                    failed
+                </td>
+                <td>Transferências TRANSFER004 - deve impedir transferência com valor negativo</td>
+                <td><code>cypress\e2e\transfer\transfer.cy.js</code></td>
+                <td>0m 25s</td>
+                <td class="error">AssertionError: Timed out retrying after 15000ms: expected &#39;&lt;div#showError&gt;&#39; to be &#39;visible&#39;
+
+This element `&lt;div#showError&gt;` is not visible because it has CSS property: `display: none`
+    at Context.eval (webpack://qa-automation-cypress/./cypress/e2e/transfer/transfer.cy.js:190:35)</td>
+                <td><code>D:\Meus Codigos\GitHub\QA-automation-cypress\cypress\evidence flow\flow-24-10-2026_14-46-40-909\transfer\photos\transfer.cy.js\Transferências -- TRANSFER003 - deve impedir transferência com valor igual a zero (failed).png</code></td>
+            </tr>
+        
+            <tr>
+                <td class="passed">
+                    passed
+                </td>
+                <td>Transferências TRANSFER005 - deve impedir transferência com valor não numérico</td>
+                <td><code>cypress\e2e\transfer\transfer.cy.js</code></td>
+                <td>0m 10s</td>
+                <td class="error">—</td>
+                <td>—</td>
+            </tr>
+        
+            <tr>
+                <td class="failed">
+                    failed
+                </td>
+                <td>Transferências TRANSFER006 - deve impedir transferência para a mesma conta</td>
+                <td><code>cypress\e2e\transfer\transfer.cy.js</code></td>
+                <td>0m 25s</td>
+                <td class="error">AssertionError: Timed out retrying after 15000ms: expected &#39;&lt;div#showError&gt;&#39; to be &#39;visible&#39;
+
+This element `&lt;div#showError&gt;` is not visible because it has CSS property: `display: none`
+    at Context.eval (webpack://qa-automation-cypress/./cypress/e2e/transfer/transfer.cy.js:234:35)</td>
+                <td><code>D:\Meus Codigos\GitHub\QA-automation-cypress\cypress\evidence flow\flow-24-10-2026_14-46-40-909\transfer\photos\transfer.cy.js\Transferências -- TRANSFER003 - deve impedir transferência com valor igual a zero (failed).png</code></td>
+            </tr>
+        
+            <tr>
+                <td class="passed">
+                    passed
+                </td>
+                <td>Pagamento de Contas BILLPAY001 - deve realizar pagamento de conta com dados válidos</td>
+                <td><code>cypress\e2e\billpay\billpay.cy.js</code></td>
+                <td>0m 15s</td>
+                <td class="error">—</td>
+                <td>—</td>
+            </tr>
+        
+            <tr>
+                <td class="passed">
+                    passed
+                </td>
+                <td>Pagamento de Contas BILLPAY002 - deve validar campos obrigatórios</td>
+                <td><code>cypress\e2e\billpay\billpay.cy.js</code></td>
+                <td>0m 07s</td>
+                <td class="error">—</td>
+                <td>—</td>
+            </tr>
+        
+            <tr>
+                <td class="passed">
+                    passed
+                </td>
+                <td>Pagamento de Contas BILLPAY003 - deve validar valores inválidos</td>
+                <td><code>cypress\e2e\billpay\billpay.cy.js</code></td>
+                <td>0m 11s</td>
+                <td class="error">—</td>
+                <td>—</td>
+            </tr>
+        
+            <tr>
+                <td class="passed">
+                    passed
+                </td>
+                <td>Pagamento de Contas BILLPAY004 - deve validar dados divergentes</td>
+                <td><code>cypress\e2e\billpay\billpay.cy.js</code></td>
+                <td>0m 11s</td>
+                <td class="error">—</td>
+                <td>—</td>
+            </tr>
+        
+            <tr>
+                <td class="passed">
+                    passed
+                </td>
+                <td>Solicitação de Empréstimo LOAN001 - deve solicitar um empréstimo com dados válidos</td>
+                <td><code>cypress\e2e\loan\loan.cy.js</code></td>
+                <td>0m 16s</td>
+                <td class="error">—</td>
+                <td>—</td>
+            </tr>
+        
+            <tr>
+                <td class="passed">
+                    passed
+                </td>
+                <td>Solicitação de Empréstimo LOAN002 - deve solicitar um empréstimo com Down Payment igual a zero</td>
+                <td><code>cypress\e2e\loan\loan.cy.js</code></td>
+                <td>0m 08s</td>
+                <td class="error">—</td>
+                <td>—</td>
+            </tr>
+        
+            <tr>
+                <td class="passed">
+                    passed
+                </td>
+                <td>Solicitação de Empréstimo LOAN003 - deve negar empréstimo com Down Payment acima do saldo disponível</td>
+                <td><code>cypress\e2e\loan\loan.cy.js</code></td>
+                <td>0m 09s</td>
+                <td class="error">—</td>
+                <td>—</td>
+            </tr>
+        
+            <tr>
+                <td class="passed">
+                    passed
+                </td>
+                <td>Solicitação de Empréstimo LOAN004 - deve negar empréstimo quando não houver fundos suficientes</td>
+                <td><code>cypress\e2e\loan\loan.cy.js</code></td>
+                <td>0m 09s</td>
+                <td class="error">—</td>
+                <td>—</td>
+            </tr>
+        
+            <tr>
+                <td class="passed">
+                    passed
+                </td>
+                <td>Solicitação de Empréstimo LOAN005 - deve apresentar erro ao não informar o Down Payment</td>
+                <td><code>cypress\e2e\loan\loan.cy.js</code></td>
+                <td>0m 08s</td>
+                <td class="error">—</td>
+                <td>—</td>
+            </tr>
+        
+            <tr>
+                <td class="passed">
+                    passed
+                </td>
+                <td>Solicitação de Empréstimo LOAN006 - deve apresentar erro ao não informar o Loan Amount</td>
+                <td><code>cypress\e2e\loan\loan.cy.js</code></td>
+                <td>0m 08s</td>
+                <td class="error">—</td>
+                <td>—</td>
+            </tr>
+        
+            <tr>
+                <td class="passed">
+                    passed
+                </td>
+                <td>Solicitação de Empréstimo LOAN007 - deve apresentar erro ao informar Down Payment inválido</td>
+                <td><code>cypress\e2e\loan\loan.cy.js</code></td>
+                <td>0m 08s</td>
+                <td class="error">—</td>
+                <td>—</td>
+            </tr>
+        
+            <tr>
+                <td class="passed">
+                    passed
+                </td>
+                <td>Solicitação de Empréstimo LOAN008 - deve apresentar erro ao informar Loan Amount inválido</td>
+                <td><code>cypress\e2e\loan\loan.cy.js</code></td>
+                <td>0m 08s</td>
+                <td class="error">—</td>
+                <td>—</td>
+            </tr>
+        
+            <tr>
+                <td class="failed">
+                    failed
+                </td>
+                <td>Solicitação de Empréstimo LOAN009 - deve apresentar erro ao informar Down Payment negativo</td>
+                <td><code>cypress\e2e\loan\loan.cy.js</code></td>
+                <td>0m 23s</td>
+                <td class="error">AssertionError: Timed out retrying after 15000ms: expected &#39;&lt;p.error&gt;&#39; to be &#39;visible&#39;
+
+This element `&lt;p.error&gt;` is not visible because its parent `&lt;div#loanRequestDenied&gt;` has CSS property: `display: none`
+    at Context.eval (webpack://qa-automation-cypress/./cypress/e2e/loan/loan.cy.js:266:13)</td>
+                <td><code>D:\Meus Codigos\GitHub\QA-automation-cypress\cypress\evidence flow\flow-24-10-2026_14-46-40-909\loan\photos\loan.cy.js\Solicitação de Empréstimo -- LOAN009 - deve apresentar erro ao informar Down Payment negativo (failed).png</code></td>
+            </tr>
+        
+            <tr>
+                <td class="passed">
+                    passed
+                </td>
+                <td>Solicitação de Empréstimo LOAN010 - deve apresentar erro ao informar Loan Amount negativo</td>
+                <td><code>cypress\e2e\loan\loan.cy.js</code></td>
+                <td>0m 08s</td>
+                <td class="error">—</td>
+                <td>—</td>
+            </tr>
+        
+            <tr>
+                <td class="passed">
+                    passed
+                </td>
+                <td>Atualização de Perfil PROFILE001 - deve atualizar todos os dados do perfil</td>
+                <td><code>cypress\e2e\profile\profile.cy.js</code></td>
+                <td>0m 15s</td>
+                <td class="error">—</td>
+                <td>—</td>
+            </tr>
+        
+            <tr>
+                <td class="passed">
+                    passed
+                </td>
+                <td>Atualização de Perfil PROFILE002 - deve impedir atualização com campos obrigatórios vazios</td>
+                <td><code>cypress\e2e\profile\profile.cy.js</code></td>
+                <td>0m 09s</td>
+                <td class="error">—</td>
+                <td>—</td>
+            </tr>
+        
+            <tr>
+                <td class="passed">
+                    passed
+                </td>
+                <td>Atualização de Perfil PROFILE003 - deve validar o formato do telefone</td>
+                <td><code>cypress\e2e\profile\profile.cy.js</code></td>
+                <td>0m 08s</td>
+                <td class="error">—</td>
+                <td>—</td>
+            </tr>
+        
+            <tr>
+                <td class="passed">
+                    passed
+                </td>
+                <td>Atualização de Perfil PROFILE004 - deve validar o formato do CEP</td>
+                <td><code>cypress\e2e\profile\profile.cy.js</code></td>
+                <td>0m 07s</td>
+                <td class="error">—</td>
+                <td>—</td>
+            </tr>
+        
+            <tr>
+                <td class="passed">
+                    passed
+                </td>
+                <td>Atualização de Perfil PROFILE005 - deve manter os dados atualizados após recarregar a página</td>
+                <td><code>cypress\e2e\profile\profile.cy.js</code></td>
+                <td>0m 10s</td>
+                <td class="error">—</td>
+                <td>—</td>
+            </tr>
+        
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <section>
+        <h2>Etapas do fluxo</h2>
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Etapa</th>
+                        <th>Spec</th>
+                        <th>Status</th>
+                        <th>Total</th>
+                        <th>Aprovados</th>
+                        <th>Reprovados</th>
+                        <th>Duração</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+        <tr>
+            <td>Register</td>
+            <td><code>cypress/e2e/register/register.cy.js</code></td>
+            <td class="passed">
+                passed
+            </td>
+            <td>5</td>
+            <td>5</td>
+            <td>0</td>
+            <td>3m 33s</td>
+        </tr>
+    
+        <tr>
+            <td>Login</td>
+            <td><code>cypress/e2e/login/login.cy.js</code></td>
+            <td class="passed">
+                passed
+            </td>
+            <td>5</td>
+            <td>5</td>
+            <td>0</td>
+            <td>0m 53s</td>
+        </tr>
+    
+        <tr>
+            <td>Accounts</td>
+            <td><code>cypress/e2e/accounts/accounts.cy.js</code></td>
+            <td class="passed">
+                passed
+            </td>
+            <td>4</td>
+            <td>4</td>
+            <td>0</td>
+            <td>0m 50s</td>
+        </tr>
+    
+        <tr>
+            <td>Transferências</td>
+            <td><code>cypress/e2e/transfer/transfer.cy.js</code></td>
+            <td class="passed">
+                passed
+            </td>
+            <td>6</td>
+            <td>3</td>
+            <td>3</td>
+            <td>2m 24s</td>
+        </tr>
+    
+        <tr>
+            <td>BillPay</td>
+            <td><code>cypress/e2e/billpay/billpay.cy.js</code></td>
+            <td class="passed">
+                passed
+            </td>
+            <td>4</td>
+            <td>4</td>
+            <td>0</td>
+            <td>1m 20s</td>
+        </tr>
+    
+        <tr>
+            <td>Loan</td>
+            <td><code>cypress/e2e/loan/loan.cy.js</code></td>
+            <td class="passed">
+                passed
+            </td>
+            <td>10</td>
+            <td>9</td>
+            <td>1</td>
+            <td>2m 26s</td>
+        </tr>
+    
+        <tr>
+            <td>Profile</td>
+            <td><code>cypress/e2e/profile/profile.cy.js</code></td>
+            <td class="passed">
+                passed
+            </td>
+            <td>5</td>
+            <td>5</td>
+            <td>0</td>
+            <td>1m 34s</td>
+        </tr>
+    
+                </tbody>
+            </table>
+        </div>
+    </section>
+</main>
+</body>
+</html>
